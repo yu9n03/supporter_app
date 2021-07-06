@@ -35,7 +35,7 @@
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
-  font-size: 0.8em;
+  font-size: 1.0em;
   color: #87CEFA;
   text-decoration: none;
   user-select: none;
@@ -136,6 +136,12 @@
   background-color: white;
   color: darkred;
   font-size: 20px;
+  border-style: none;
+  border-radius: 5px;
+}
+.contents-submit-btn:hover{
+  color: #fff;
+  background: darkred;
 }
 
 /* グラフ表示エリア */
