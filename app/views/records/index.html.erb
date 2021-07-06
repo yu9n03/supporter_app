@@ -1,1 +1,99 @@
-<h1>トップページ</h1>
+<%#インプットエリア%>
+<div class="main-wrapper">
+  <div class="input-contents">
+    <div class="form-top">
+      <p class="input-message">入力してください</p>
+    </div>
+    <div class="form-middle">
+      <div class="form-content">
+        <p class="input-list">日付</p>
+        <div class="input-area"></div>
+      </div>
+      <div class="form-content">
+        <p class="input-list">体重</p>
+        <div class="input-area">kg</div>
+      </div>
+      <div class="form-content">
+        <p class="input-list">体脂肪率</p>
+        <div class="input-area">%</div>
+      </div>
+    </div>
+    <div class="form-bottom">
+      <div class="memo-contents">
+        <p class="memo-list">メモ</p>
+        <div class="memo-area">
+          <input class="form-memo" placeholder= "メモを入力してください（３０文字以内）">
+        </div>
+      </div>
+      <div class="contents-submit-content">
+          <input class="contents-submit-btn" type="submit" value="送信">
+      </div>
+    </div>
+  </div>
+
+<%#グラフエリア%>
+  <div class="output-contents">
+    グラフエリア
+  </div>
+
+<%#メッセージエリア%>
+  <div class="message-top">
+      メッセージ
+  </div>
+  <div class="messages-contents">
+    <div class="message-main">
+      <div class="message-set"> 
+        <div class="message-name">いわと</div>
+        <div class="message-date">2021-07-05 20:00</div>
+      </div>
+        <div class="message">おはようございます。今日も暑いですが、一生懸命頑張りましょうね！応援しております♪</div>
+    </div>
+    <div class="message-main">
+      <div class="message-set"> 
+        <div class="message-name">いわと</div>
+        <div class="message-date">2021-07-06 20:00</div>
+      </div>
+        <div class="message">お疲れ様です。今日はいかがでしたか！？体重などの入力待っています！</div>
+    </div>
+    <div class="message-main">
+      <div class="message-set"> 
+        <div class="message-name">いわと</div>
+        <div class="message-date">2021-07-07 20:00</div>
+      </div>
+        <div class="message">お疲れ様です。今日で３日目ですね。あと、今日は七夕です！目標をしっかり持っていきましょうね！</div>
+    </div>
+    <div class="message-main">
+      <div class="message-set"> 
+        <div class="message-name">いわと</div>
+        <div class="message-date">2021-07-08 20:00</div>
+      </div>
+        <div class="message">お疲れ様です。今日で4日目ですね。今日もよろしくお願いします！</div>
+    </div>
+  </div>
+  <div class="chat-message-form">
+    <div class="chat-message-area"> 
+      <input class="form-message" placeholder= "テキストを入力してください">
+    </div>
+    <div class="chat-submit-content">
+          <input class="chat-submit-btn" type="submit" value="送信">
+    </div>
+  </div>
+
+  <%#予約機能エリア%>
+    <div class="reservation-top">
+      面談予約
+    </div>
+  <div class="reservations-contents">
+    <div class="reserved-date">
+      面談予約済みの日時：  2021-07-16  13:00
+    </div>
+    <div class="reservation-bottom">
+      <div class="reservation-input-form">
+        予約希望日時：アクティブハッシュで実装
+      </div>
+      <div class="reservation-submit-content">
+        <input class="reservation-submit-btn" type="submit" value="予約">
+      </div>
+    </div>
+  </div>
+</div>
