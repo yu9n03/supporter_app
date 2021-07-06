@@ -1,0 +1,265 @@
+
+/* ヘッダー */
+.header {
+  background-color: #f1f8fe;
+  padding: 15px 0px ;
+  width: 100vw;
+}
+.inner {
+  width: 95%;
+  margin: 0 auto;
+}
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 200px;
+}
+.nav__btn{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 1.0em;
+  color: #87CEFA;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+.nav__btn:hover{
+  color: #fff;
+  background: #87CEFA;
+}
+.nav__logout{
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: #87CEFA;
+  text-decoration: none;
+  user-select: none;
+}
+.nav__logout:hover{
+  opacity: 0.5;
+}
+
+/* body部分 */
+.main-wrapper{
+  background-color: rgb(185, 226, 241);
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+}
+/* 入力フォームエリア */
+.input-contents{
+  background-color: wheat;
+  width: 95%;
+  height: 150px;
+  margin: 15px auto;
+  padding: 5px 10px;
+}
+.form-top{
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
+.input-message{
+  font-size: 15px;
+  color: darkred;
+}
+.form-middle{
+  display: flex;
+  justify-content: space-around;
+}
+.form-content{
+  background-color: darksalmon;
+  height: 50px;
+  width: 30%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.input-list{
+  color: darkred;
+  width: 45px;
+  text-align: center;
+}
+.input-area{
+  background-color: #fff;
+  height: 85%;
+  width: calc(100% - 40px);
+  margin: 0 5px;
+  text-align: right;
+}
+.form-bottom{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.memo-contents{
+  width: calc(91% - 80px);
+  background-color: darksalmon;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;  
+}
+.memo-list{
+  color: darkred;
+  width: 45px;
+  text-align: center;
+}
+.memo-area{
+  background-color: #fff;
+  height: 85%;
+  width: calc(100% - 45px);
+  margin: 0 5px;
+}
+.form-memo{
+  width: 100%;
+  height: 100%;
+  border-style: none;
+}
+.contents-submit-content{
+  background-color: darksalmon;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contents-submit-btn{
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  color: darkred;
+  font-size: 20px;
+}
+
+/* グラフ表示エリア */
+.output-contents{
+  background-color: whitesmoke;
+  width: 95%;
+  height: 500px;
+  margin: 0px auto 15px;
+  padding: 15px;
+}
+/* メッセージエリア*/
+.message-top{
+  width: 95%;
+  height: 30px;
+  background-color:dodgerblue;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+.messages-contents{
+  background-color: dodgerblue;
+  width: 95%;
+  height: 200px;
+  margin: 0 auto;
+  padding: 5px;
+  overflow: scroll;
+}
+.message-main{
+  background-color: lightcyan;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.message-set{
+  display: flex;
+  padding: 0 10px;
+}
+.message-name{
+  width: 100px;
+  font-size: 20px;
+}
+.message-date{
+  width: 200px;
+  color: gray;
+}
+.message{
+  width: calc(100% - 100px 200px);
+  margin-left: 20px;
+}
+.chat-message-form{
+  width: 95%;
+  height: 60px;
+  margin: 0 auto 15px;
+  padding: 5px 15px 0;
+  background-color: dodgerblue;
+  display: flex;
+  justify-content: space-around;
+}
+.chat-message-area{
+  background-color:white;
+  width: calc( 100% - 70px);
+  height: 50px;
+}
+.form-message{
+  width: 100%;
+  height: 100%;
+  border-style: none;
+}
+.chat-submit-content{
+  width: 70px;
+  height: 50px;
+  background-color: white;
+  margin-left: 20px;
+}
+.chat-submit-btn{
+  background-color: blue;
+  color: white;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* 面談予約フォームエリア */
+.reservation-top{
+  width: 95%;
+  height: 30px;
+  background-color:dodgerblue;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+.reservations-contents{
+  background-color: white;
+  width: 95%;
+  height: 100x;
+  margin: 0 auto 15px;
+  padding: 15px;
+}
+.reserved-date{
+  background-color: #87CEFA;
+  margin-bottom: 15px;
+}
+.reservation-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.reservation-input-form{
+  width: 500px;
+  height: 50px;
+  padding: 13px 0; 
+  background-color: #87CEFA;
+}
+.reservation-submit-content{
+  width: 100px;
+  height: 50px;
+  margin: 0 20px;
+}
+.reservation-submit-btn{
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: lightblue;
+}
