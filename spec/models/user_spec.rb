@@ -4,13 +4,25 @@ RSpec.describe User, type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
-  
+
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
       it '全てがの情報が入力されていれば登録できる' do
 
       end
-      it 'passwordとpassword_confirmationは6文字以上の半角英数混合の入力であれば登録できる' do
+      it 'heigtは小数点なしの3桁でも登録できる' do
+
+      end
+      it 'basis_weigtは小数点なしの3桁でも登録できる' do
+
+      end
+      it 'basis_weigtは小数点なしの2桁でも登録できる' do
+
+      end
+      it 'basis_weigtは小数点以下1桁でも登録できる' do
+
+      end
+      it 'basis_weigtは小数点以下2桁でも登録できる' do
 
       end
     end
@@ -34,29 +46,46 @@ RSpec.describe User, type: :model do
       it 'passwordが5文字以下では登録できない' do
 
       end
-      it 'passwordが半角数字のみでは登録できない' do
-
-      end
-      it 'passwordは半角英字のみでは登録できない' do
-
-      end
       it 'passwordは全角英数字では登録できない' do
 
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
 
       end
-
-      it 'nicknameが空では登録できない' do
+      it 'ageが空では登録できない' do
 
       end
-      it 'ageが空では登録できない' do
+      it 'ageが1桁では登録できない' do
+
+      end
+      it 'ageが3桁では登録できない' do
+
+      end
+      it 'ageが全角数字2桁では登録できない' do
 
       end
       it 'heightが空では登録できない' do
 
       end
+      it 'heightが2桁以下では登録できない' do
+      
+      end
+      it 'heightが4桁以上では登録できない' do
+
+      end
+      it 'heightが小数点以下2桁では登録できない' do
+
+      end
       it 'basis_weightが空では登録できない' do
+
+      end
+      it 'basis_weightが1桁では登録できない' do
+      
+      end
+      it 'basis_weightが4桁以上では登録できない' do
+
+      end
+      it 'basis_weightが小数点以下3桁では登録できない' do
 
       end
     end
