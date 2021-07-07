@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
       it 'passwordが5文字以下では登録できない' do
         @user.password = 'a1a1a'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password = 'a1a1a1'
@@ -78,17 +78,17 @@ RSpec.describe User, type: :model do
       it 'ageが1桁では登録できない' do
         @user.age = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Age is invalid")
+        expect(@user.errors.full_messages).to include('Age is invalid')
       end
       it 'ageが3桁では登録できない' do
         @user.age = 111
         @user.valid?
-        expect(@user.errors.full_messages).to include("Age is invalid")
+        expect(@user.errors.full_messages).to include('Age is invalid')
       end
       it 'ageが全角数字2桁では登録できない' do
         @user.age = '１１'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Age is invalid")
+        expect(@user.errors.full_messages).to include('Age is invalid')
       end
       it 'heightが空では登録できない' do
         @user.height = ''
@@ -98,12 +98,12 @@ RSpec.describe User, type: :model do
       it 'heightが2桁以下では登録できない' do
         @user.height = 99
         @user.valid?
-        expect(@user.errors.full_messages).to include("Height is invalid")
+        expect(@user.errors.full_messages).to include('Height is invalid')
       end
       it 'heightが4桁以上では登録できない' do
         @user.height = 1111
         @user.valid?
-        expect(@user.errors.full_messages).to include("Height is invalid")
+        expect(@user.errors.full_messages).to include('Height is invalid')
       end
       it 'basis_weightが空では登録できない' do
         @user.basis_weight = ''
@@ -113,12 +113,12 @@ RSpec.describe User, type: :model do
       it 'basis_weightが1桁では登録できない' do
         @user.basis_weight = 1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Basis weight is invalid")
+        expect(@user.errors.full_messages).to include('Basis weight is invalid')
       end
       it 'basis_weightが4桁以上では登録できない' do
         @user.basis_weight = 1111
         @user.valid?
-        expect(@user.errors.full_messages).to include("Basis weight is invalid")
+        expect(@user.errors.full_messages).to include('Basis weight is invalid')
       end
     end
   end
