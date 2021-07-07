@@ -14,34 +14,38 @@
   display: flex;
   justify-content: space-between;
 }
-.logo {
-  width: 200px;
+.header_logo {
+  width: 250px;
 }
-.nav__btn{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 1.0em;
+.nav__right{
+  display: flex;
+  align-items: center;
+}
+.nav__nickname{
+  font-size: 20px;
+  margin-right: 30px;
   color: #87CEFA;
   text-decoration: none;
-  user-select: none;
-  border: 1px #87CEFA solid;
-  border-radius: 3px;
   transition: 0.4s ease;
 }
-.nav__btn:hover{
-  color: #fff;
-  background: #87CEFA;
+.nav__nickname:hover{
+  opacity: 0.5;
+  color:#87CEFA;
 }
 .nav__logout{
-  display: inline-block;
   padding: 0.4em 1.6em;
-  font-size: 0.8em;
+  font-size: 20px;
   color: #87CEFA;
   text-decoration: none;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
   user-select: none;
+  transition: 0.4s ease;
 }
 .nav__logout:hover{
   opacity: 0.5;
+  color: #fff;
+  background: #87CEFA;
 }
 
 /* body部分 */
@@ -136,6 +140,14 @@
   background-color: white;
   color: darkred;
   font-size: 20px;
+  border-style: none;
+  border-radius: 5px;
+  transition: 0.4s ease;
+}
+.contents-submit-btn:hover{
+  opacity: 0.5;
+  color: #ffffff;
+  background: darkred;
 }
 
 /* グラフ表示エリア */

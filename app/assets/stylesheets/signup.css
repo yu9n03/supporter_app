@@ -1,0 +1,169 @@
+.wrapper{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+/* 左サイド */
+.left-side{
+  height: 100%;
+  width: calc(100% - 400px);
+  background-color: lightblue;
+  display: flex;
+  position: relative;
+}
+.logo{
+  width: 70%;
+  margin: 10px 20px;
+  position: absolute;
+}
+.top_img{
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+/* 右サイド */
+.right-side{
+  height: 100vh;
+  width: 400px;
+  background-color: white;
+}
+.log-in-top{
+  color: skyblue;
+  font-size: 50px;
+  margin: 10px 20px;
+}
+.form-contents{
+  background-color: white;
+}
+.field{
+  height: 60px;
+  width: 300px;
+  margin: 20px auto;
+}
+.field_label{
+  font-size: 20px;
+  color: gray;
+}
+.text_field{
+  width: 300px;
+  height: 40px;
+}
+.actions{
+  height: 50px;
+  width: 200px;
+  background-color: skyblue;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+}
+.log_in_btn{
+  border: none;
+  background-color: skyblue;
+  color: white;
+  font-size: 20px;
+  display: block;
+}
+.new-registration-title{
+  color: skyblue;
+  font-size: 30px;
+  width: 240px;
+  margin: 100px auto 20px;
+}
+.new-registration-area{
+  height: 50px;
+  width: 200px;
+  background-color: skyblue;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+}
+.new_registration_btn{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: block;
+}
+
+/*新規登録画面*/
+/*メイン部分はログイン画面と共通*/
+.error-contents{
+  width: 150px;
+  margin: 0 auto;
+}
+.error-message{
+  font-size: 5px;
+  color: darkred;
+}
+.form-contents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up-actions{
+  height: 50px;
+  width: 200px;
+  background-color: skyblue;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 10px;
+}
+.sign_up_btn{
+  border: none;
+  background-color: skyblue;
+  color: white;
+  font-size: 20px;
+  display: block;
+}
+/*ユーザー情報編集画面*/
+/*メイン部分はログイン画面と共通*/
+.back_page{
+  text-decoration: none;
+  color: blue;
+}
+.edit-top{
+  color: skyblue;
+  font-size: 50px;
+  margin: 0 20px;
+}
+.edit-form-contents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit-field{
+  width: 300px;
+  margin: 0 auto;
+}
+.edit_text_field{
+  width: 300px;
+}
+.edit-actions{
+  height: 50px;
+  width: 200px;
+  background-color: skyblue;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto 10px;
+}
+.edit_btn{
+  border: none;
+  background-color: skyblue;
+  color: white;
+  font-size: 20px;
+  display: block;
+}
+.delete_btn{
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 3px 5px;
+  border-radius: 10px;
+}
