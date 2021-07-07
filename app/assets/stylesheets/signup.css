@@ -87,3 +87,39 @@
   font-size: 20px;
   display: block;
 }
+
+/*新規登録画面*/
+/*メイン部分はログイン画面と共通*/
+.error-contents{
+  width: 150px;
+  margin: 0 auto;
+}
+.error-message{
+  font-size: 5px;
+  color: darkred;
+}
+.form-contents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up-field{
+
+}
+.sign-up-actions{
+  height: 50px;
+  width: 200px;
+  background-color: skyblue;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 10px;
+}
+.sign_up_btn{
+  border: none;
+  background-color: skyblue;
+  color: white;
+  font-size: 20px;
+  display: block;
+}

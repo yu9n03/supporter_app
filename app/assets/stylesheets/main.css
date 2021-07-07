@@ -14,8 +14,8 @@
   display: flex;
   justify-content: space-between;
 }
-.logo {
-  width: 200px;
+.header_logo {
+  width: 250px;
 }
 .nav__logout{
   display: inline-block;
