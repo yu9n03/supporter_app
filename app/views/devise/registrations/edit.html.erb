@@ -7,7 +7,7 @@
 
   <%# 右サイドコンテンツ%>
   <div class="right-side">
-    <%= link_to "MYページへ戻る", :back, class: :back_page %>
+    <%= link_to "MYページへ戻る", root_path, class: :back_page %>
     <h2 class="edit-top">Edit <%= resource_name.to_s.humanize %></h2>
   
     <div class="edit-form-contents">
@@ -45,17 +45,17 @@
 
         <div class="edit-field">
           <%= f.label :年齢, class: :field_label %><br />
-          <%= f.text_field :age, autofocus: true, class: :edit_text_field %>
+          <%= f.text_field :age, autofocus: true, maxlength:"2", class: :edit_text_field %>
         </div>
     
         <div class="edit-field">
           <%= f.label :身長, class: :field_label %><br />
-          <%= f.text_field :height, autofocus: true, class: :edit_text_field %>
+          <%= f.text_field :height, autofocus: true, maxlength:"5", class: :edit_text_field %>
         </div>
     
         <div class="edit-field">
           <%= f.label :現在の体重, class: :field_label %><br />
-          <%= f.text_field :basis_weight, autofocus: true, class: :edit_text_field %>
+          <%= f.text_field :basis_weight, autofocus: true, maxlength:"6", class: :edit_text_field %>
         </div>
       
         <div class="edit-actions">
