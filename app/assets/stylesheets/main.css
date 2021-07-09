@@ -275,3 +275,30 @@
   color: white;
   background-color: lightblue;
 }
+
+/* 面談予約フォームエリア */
+.target-wrapper{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c1e3f8;
+}
+.plan-area{
+  height: 80%;
+  width: 500px;
+  background-color: white;
+  padding: 10px;
+}
+.plan-top-logo{
+  color: skyblue;
+  font-size: 50px;
+}
+.plan-list{
+  color: skyblue;
+  font-size: 20px;
+}
+.plan-output{
+  height: 80px;
+}
