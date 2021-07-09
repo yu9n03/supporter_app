@@ -21,15 +21,15 @@
 
 ## records テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| weight        | integer    | null: false                    |
-| body_fat      | integer    |                                |
-| memo          | text       |                                |
-| assessment_id | integer    | null: false                    |
-| input_day     | date       | null: false                    |
-| user          | references | null: false, foreign_key: true |
-| target        | references | null: false, foreign_key: true |
+| Column        | Type       | Options                             |
+| ------------- | ---------- | ----------------------------------- |
+| weight        | decimal    | null: false, precision: 5, scale: 2 |
+| body_fat      | decimal    | null: false, precision: 4, scale: 2 |
+| memo          | text       |                                     |
+| assessment_id | integer    | null: false                         |
+| input_day     | date       | null: false                         |
+| user          | references | null: false, foreign_key: true      |
+| target        | references | null: false, foreign_key: true      |
 
 ### Association
 - belongs_to :user
@@ -37,12 +37,12 @@
 
 ## targets テーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| goal_weight | integer    | null: false                    |
-| period_id   | integer    | null: false                    |
-| plan        | text       | null: false                    |
-| user        | references | null: false, foreign_key: true |
+| Column      | Type       | Options                             |
+| ----------- | ---------- | ----------------------------------- |
+| goal_weight | decimal    | null: false, precision: 5, scale: 2 |
+| period_id   | integer    | null: false                         |
+| plan        | text       | null: false                         |
+| user        | references | null: false, foreign_key: true      |
 
 ### Association
 - belongs_to :user

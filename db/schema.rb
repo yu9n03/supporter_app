@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_030023) do
+ActiveRecord::Schema.define(version: 2021_07_09_053000) do
+
+  create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.decimal "weight", precision: 5, scale: 2, null: false
+    t.decimal "body_fat", precision: 4, scale: 2, null: false
+    t.text "memo"
+    t.integer "asessment_id", null: false
+    t.date "input_day", null: false
+    t.bigint "user_id", null: false
+    t.bigint "target_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["target_id"], name: "index_records_on_target_id"
+    t.index ["user_id"], name: "index_records_on_user_id"
+  end
+
+  create_table "targets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.decimal "goal_weight", precision: 5, scale: 2, null: false
+    t.integer "period_id", null: false
+    t.text "plan", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_targets_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -28,4 +52,7 @@ ActiveRecord::Schema.define(version: 2021_07_06_030023) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "records", "targets"
+  add_foreign_key "records", "users"
+  add_foreign_key "targets", "users"
 end
