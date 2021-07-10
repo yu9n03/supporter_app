@@ -4,10 +4,9 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       t.decimal :weight, precision: 5, scale: 2, null: false
       t.decimal :body_fat, precision: 4, scale: 2, null: false
       t.text :memo
-      t.integer :asessment_id, null: false
+      t.integer :assessment_id, null: false
       t.date :input_day, null: false
       t.references :user, null: false, foreign_key: true
-      t.references :target, null: :false, foreign_key: true
       t.timestamps
     end
   end
