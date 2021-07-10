@@ -15,6 +15,7 @@
   </div>
 </header>
 <%#インプットエリア%>
+<%= form_with model: @record, url: records_path, local: true do |f| %>
 <div class="main-wrapper">
   <div class="input-contents">
     <div class="form-top">
@@ -23,30 +24,43 @@
     <div class="form-middle">
       <div class="form-content">
         <p class="input-list">日付</p>
-        <div class="input-area"></div>
+        <div class="input-area">
+           <%= f.date_select :input_day %>
+        </div>
       </div>
       <div class="form-content">
         <p class="input-list">体重</p>
-        <div class="input-area">kg</div>
+        <div class="input-area">
+        <%= f.text_field :weight, class:"input-weight", id:"weight", placeholder:"例) 80.25", maxlength:"5" %>
+        kg
+        </div>
       </div>
       <div class="form-content">
         <p class="input-list">体脂肪率</p>
-        <div class="input-area">%</div>
+        <div class="input-area">
+        <%= f.text_field :body_fat, class:"input-body-fat", id:"boby_fat", placeholder:"例) 22.55", maxlength:"5" %>
+        %</div>
+      </div>
+      <div class="form-content">
+        <p class="input-list">Plan達成度</p>
+        <div class="input-area">
+          <%= f.select :assessment_id, [ ["○",1], ["△",2], ["×",3] ], prompt: "達成度を選択" %>
+        </div>
       </div>
     </div>
     <div class="form-bottom">
       <div class="memo-contents">
         <p class="memo-list">メモ</p>
         <div class="memo-area">
-          <input class="form-memo" placeholder= "メモを入力してください（３０文字以内）">
+          <%= f.text_area :memo, class:"form-memo", id:"memo", placeholder:"３０文字以内で入力してください", maxlength:"30" %>
         </div>
       </div>
       <div class="contents-submit-content">
-          <input class="contents-submit-btn" type="submit" value="送信">
+        <%= f.submit "SEND" ,class:"contents-submit-btn" %>
       </div>
     </div>
   </div>
-
+  <% end %>
 <%#グラフエリア%>
   <div class="output-contents">
     グラフエリア
