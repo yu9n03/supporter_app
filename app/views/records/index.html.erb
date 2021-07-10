@@ -64,6 +64,10 @@
 <%#グラフエリア%>
   <div class="output-contents">
     グラフエリア
+    <% @records.each do |record| %>
+      <%= record.input_day %>
+      <%= record.weight %>
+    <% end %>
     <%= link_to "プランを確認", user_path(current_user) %>
   </div>
 
