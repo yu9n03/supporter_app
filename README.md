@@ -29,11 +29,9 @@
 | assessment_id | integer    | null: false                         |
 | input_day     | date       | null: false                         |
 | user          | references | null: false, foreign_key: true      |
-| target        | references | null: false, foreign_key: true      |
 
 ### Association
 - belongs_to :user
-- belongs_to :target
 
 ## targets テーブル
 
@@ -46,7 +44,6 @@
 
 ### Association
 - belongs_to :user
-- has_many :records
 
 ## messages テーブル
   
