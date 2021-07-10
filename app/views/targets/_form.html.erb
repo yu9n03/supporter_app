@@ -1,21 +1,35 @@
 <%= form_with model: @target, local: true do |f|%>
   <div class="plan-field">
     <%= f.label :goal_weight, "目標体重" %><br />
-    <%= f.text_field :goal_weight %> kg
+    <%= f.text_field :goal_weight, class: :goal_weight_area, id: :goal_weight %> kg
   </div>
 
   <div class="plan-field">
     <%= f.label :period_id, "期間" %><br />
-    <%= f.collection_select(:period_id, Period.all, :id, :name, {}, {class:"select-box", id:"period-category"}) %>
+    <%= f.collection_select(:period_id, Period.all, :id, :name, {}, {class:"period-select-box", id:"period"}) %>
   </div>
 
   <div class="plan-field">
     <%= f.label :plan, "プラン" %><br />
-    <%= f.text_area :plan, class: :form__text %>
+    <%= f.text_area :plan, class: :plan_form_text %>
   </div>
-
+  <%# 自動計算エリア%>
+  <div class="calc-area-wrapper">
+    <div class="calc-area">
+      <div class="calc-title">現在の体重</div>
+      <div class="calc-result"><span id="basis_weight"><%=@user.basis_weight%></span>  kg</div>
+    </div>
+    <div class="calc-area">
+      <div class="calc-title">マイナス</div>
+      <div class="calc-result"><span id="loss_weight"></span>  kg</div>
+    </div>
+    <div class="calc-area">
+      <div class="calc-title">１日あたりの削減カロリー</div>
+      <div class="calc-result"><span id="calorie"></span>  kcal</div>
+    </div>
+  </div>
   <div class="plan-actions">
-    <%= f.submit "保存", class: :plan_form__btn  %>
+    <%= f.submit "保存", class: :plan_form_btn  %>
   </div>
 <% end %>
 

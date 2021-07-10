@@ -10,6 +10,6 @@ class User < ApplicationRecord
     validates :height, format: { with: /\A([1-2]{1}[0-9]{2})(\.[0-9]{1})?\z/ }
     validates :basis_weight, format: { with: /\A([0-9]{2,3})(\.[0-9]{1,2})?\z/ }
   end
-  has_one :target
-  has_many :records
+  has_one :target, dependent: :destroy
+  has_many :records, dependent: :destroy
 end

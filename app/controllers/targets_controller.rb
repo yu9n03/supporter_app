@@ -1,6 +1,7 @@
 class TargetsController < ApplicationController
   
   def new
+    @user = User.find(current_user.id)
     @target = Target.new
   end
 
@@ -14,6 +15,7 @@ class TargetsController < ApplicationController
   end
 
   def edit
+    @user = User.find(current_user.id)
     @target = Target.find(params[:id])
   end
 
