@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_record, only: [:edit, :update, :destroy]
+  before_action :user_confirmation, only: [:edit, :update, :destroy]
   before_action :set_contents, only: [:index, :create]
 
 
@@ -50,5 +51,9 @@ class RecordsController < ApplicationController
     @user = User.find(current_user.id)
     @current_record = Record.where(user_id: current_user.id).limit(1).order('input_day DESC').last
     @target = Target.find_by(user_id: current_user.id)
+  end
+
+  def user_confirmation
+    redirect_to root_path unless current_user.id == @record.user_id
   end
 end
