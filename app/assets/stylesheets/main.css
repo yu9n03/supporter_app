@@ -172,13 +172,14 @@
   width: 95%;
   height: 500px;
   margin: 0px auto 15px;
-  padding: 15px;
+  padding: 10px;
   display: flex;
 }
 .current-weight{
   width: 230px;
   height: 100%;
   padding: 5px;
+  margin-right: 10px;
   background-color: white;
 }
 .current-weight-title{
@@ -208,10 +209,42 @@
   padding: 3px 5px;
   border-radius: 4px;
 }
-
 .graph-area{
   height: 100%;
   width: calc(100% - 250px);
+}
+.my-plan-area{
+  height: 80px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.my-plan-title{
+  background-color: gray;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+.my-plan-content{
+  padding: 13px 5px;
+}
+.my-plan-list{
+  color: gray;
+}
+.my-plan-value{
+  background-color: #f1f8fe;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
+.my-chart-area{
+  height: calc(100% - 80px);
+  background-color: white;
+  padding: 5px;
+}
+.chart{
+  height: 100%;
+  width: 100%;
+  padding-top: 10px;
 }
 /* メッセージエリア*/
 .message-top{

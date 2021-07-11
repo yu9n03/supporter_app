@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
   def index
     @records = Record.where(user_id: current_user.id).limit(10).order('input_day DESC')
     @record = Record.new
+    @user = User.find(current_user.id)
   end
 
   def create

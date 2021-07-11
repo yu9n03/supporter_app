@@ -76,6 +76,24 @@
         <% end %>
     </div>
     <div class="graph-area">
+      <div class="my-plan-area">
+        <div class="my-plan-title">My Plan</div>
+        <div class="my-plan-content">
+          <span class="my-plan-list">目標体重</span><span class="my-plan-value">60.0kg</span>
+          <span class="my-plan-list">目標期間</span><span class="my-plan-value">3ヶ月</span>
+          <span class="my-plan-list">１日あたり削減カロリー</span><span class="my-plan-value">120kcal</span>
+        </div>
+      </div>
+      <div class="my-chart-area">
+        <div class="my-plan-title">My Chart</div>
+        <div class="my-chart">
+          <%= line_chart @records.group(:input_day).sum(:weight),
+                 xtitle: "Date", ytitle: "Weight",
+                 min: @record.weight, max: @record.weight,
+                 height: "360px",
+                 curve: false %>
+        </div>
+      </div>
     </div>
   </div>
 
