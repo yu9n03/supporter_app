@@ -1,10 +1,10 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_record, only: [:edit, :update, :destroy]
 
   def index
     @records = Record.where(user_id: current_user.id).limit(10).order('input_day DESC')
     @record = Record.new
-    @user = User.find(current_user.id)
   end
 
   def create
@@ -18,11 +18,9 @@ class RecordsController < ApplicationController
   end
 
   def edit
-    @record = Record.find(params[:id])
   end
 
   def update
-    @record = Record.find(params[:id])
     if @record.update(record_params)
       redirect_to action: :index
     else
@@ -31,7 +29,6 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    @record = Record.find(params[:id])
     if @record.destroy
       redirect_to action: :index
     else
@@ -42,5 +39,9 @@ class RecordsController < ApplicationController
   private
   def record_params
     params.require(:record).permit(:weight, :body_fat, :memo, :assessment_id, :input_day).merge(user_id: current_user.id)
+  end
+
+  def set_record
+    @record = Record.find(params[:id])
   end
 end
