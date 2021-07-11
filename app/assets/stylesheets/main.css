@@ -57,7 +57,7 @@
 }
 /* 入力フォームエリア */
 .input-contents{
-  background-color: wheat;
+  background-color: whitesmoke;
   width: 95%;
   height: 150px;
   margin: 15px auto;
@@ -70,14 +70,14 @@
 }
 .input-message{
   font-size: 15px;
-  color: darkred;
+  color: gray;
 }
 .form-middle{
   display: flex;
   justify-content: space-around;
 }
 .form-content{
-  background-color: darksalmon;
+  background-color: #87CEFA;
   height: 50px;
   width: 24%;
   margin-bottom: 10px;
@@ -87,7 +87,7 @@
 }
 .input-list{
   font-size: 12px;
-  color: darkred;
+  color: gray;
   width: 45px;
   text-align: center;
 }
@@ -121,13 +121,13 @@
 }
 .memo-contents{
   width: calc(91% - 80px);
-  background-color: darksalmon;
+  background-color: #87CEFA;
   display: flex;
   justify-content: space-around;
   align-items: center;  
 }
 .memo-list{
-  color: darkred;
+  color: gray;
   width: 45px;
   text-align: center;
 }
@@ -143,10 +143,11 @@
   border-style: none;
 }
 .contents-submit-content{
-  background-color: darksalmon;
+  background-color: #87CEFA;
   width: 100px;
   height: 100%;
   display: flex;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
 }
@@ -154,7 +155,7 @@
   width: 80%;
   height: 80%;
   background-color: white;
-  color: darkred;
+  color: gray;
   font-size: 20px;
   border-style: none;
   border-radius: 5px;
@@ -163,7 +164,7 @@
 .contents-submit-btn:hover{
   opacity: 0.5;
   color: #ffffff;
-  background: darkred;
+  background: skyblue;
 }
 
 /* グラフ表示エリア */
@@ -199,6 +200,7 @@
   margin-right: 3px;
 }
 .input-weight{
+  font-size: 13px;
   margin-right: 5px;
 }
 .edit_link{
