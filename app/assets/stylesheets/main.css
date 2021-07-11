@@ -157,6 +157,45 @@
   height: 500px;
   margin: 0px auto 15px;
   padding: 15px;
+  display: flex;
+}
+.current-weight{
+  width: 230px;
+  height: 100%;
+  padding: 5px;
+  background-color: white;
+}
+.current-weight-title{
+  width: 220px;
+  color: white;
+  padding: 0 30px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid gray;
+  background-color: gray;
+}
+.weight-chart{
+  margin-bottom: 8px;
+  border-bottom: 1px solid gray;
+}
+.input-date{
+  font-size: 5px;
+  margin-right: 3px;
+}
+.input-weight{
+  margin-right: 5px;
+}
+.edit_link{
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  background-color: rgb(165, 164, 164);
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+
+.graph-area{
+  height: 100%;
+  width: calc(100% - 250px);
 }
 /* メッセージエリア*/
 .message-top{

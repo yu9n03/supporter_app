@@ -8,6 +8,7 @@
       <% if user_signed_in? %>
          <div class="nav__right">
           <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
+          <%= link_to "My plan", user_path(current_user), class: :nav__nickname %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
         </div>
       <% end %>
@@ -15,7 +16,7 @@
   </div>
 </header>
 <%#インプットエリア%>
-<%= form_with model: @record, url: records_path, local: true do |f| %>
+<%= form_with model: @record, local: true do |f| %>
 <div class="main-wrapper">
   <div class="input-contents">
     <div class="form-top">
@@ -63,12 +64,19 @@
   <% end %>
 <%#グラフエリア%>
   <div class="output-contents">
-    グラフエリア
-    <% @records.each do |record| %>
-      <%= record.input_day %>
-      <%= record.weight %>
-    <% end %>
-    <%= link_to "プランを確認", user_path(current_user) %>
+    <div class="current-weight">
+      <div class="current-weight-title">最近のデータ(10件)</div>
+        <% @records.each do |record| %>
+        <div class="weight-chart">
+          <span class="input-date"><%= record.input_day %></span>
+          <span class="input-weight"><%= record.weight %>  kg</span>
+          <%= link_to "修正" ,edit_record_path(record.id), class: :edit_link %>
+          <%= link_to "削除" ,record_path(record.id),method: :delete, class: :edit_link %>
+        </div>
+        <% end %>
+    </div>
+    <div class="graph-area">
+    </div>
   </div>
 
 <%#メッセージエリア%>
