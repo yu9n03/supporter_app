@@ -2,8 +2,9 @@
 /* ヘッダー */
 .header {
   background-color: #f1f8fe;
-  padding: 15px 0px ;
+  padding: 10px 0px ;
   width: 100vw;
+  height: 70px;
 }
 .inner {
   width: 95%;
@@ -33,12 +34,12 @@
   color:#87CEFA;
 }
 .nav__logout{
-  padding: 0.4em 1.6em;
+  padding: 0.3em 0.8em;
   font-size: 20px;
   color: #87CEFA;
   text-decoration: none;
   border: 1px #87CEFA solid;
-  border-radius: 3px;
+  border-radius: 5px;
   user-select: none;
   transition: 0.4s ease;
 }
@@ -50,7 +51,6 @@
 
 /* body部分 */
 .main-wrapper{
-  background-color: rgb(185, 226, 241);
   width: 100vw;
   height: 100vh;
   overflow: scroll;
