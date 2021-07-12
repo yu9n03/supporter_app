@@ -63,15 +63,23 @@
 <% end %>
 <%#全レコード表示エリア%>
 <div class="all-records">
-    <div class="records-title">Record List</div>
+    <div class="records-title">
+      Record List
+    </div>
+    <div class="show-records" >
+      <span class="show-date">日付</span>
+      <span class="show-weight">体重</span>
+      <span class="show-plan">Planの達成度</span>
+      <span class="show-memo">メモ</span>
+    </div>
     <% @records.each do |record| %>
     <div class="show-records">
       <span class="show-date"><%= record.input_day %></span>
       <span class="show-weight"><%= record.weight %>  kg</span>
       <span class="show-plan"><%= record.assessment %></span>
       <span class="show-memo"><%= record.memo %></span>
-      <%= link_to "修正" ,edit_record_path(record.id), class: :edit_link %>
-      <%= link_to "削除" ,record_path(record.id),method: :delete, class: :edit_link %>
+      <%= link_to "修正" ,edit_record_path(record.id), class: :show_edit_link %>
+      <%= link_to "削除" ,record_path(record.id),method: :delete, class: :show_edit_link %>
     </div>
     <% end %>
 </div>

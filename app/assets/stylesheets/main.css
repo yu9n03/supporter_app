@@ -380,7 +380,7 @@
   box-shadow: none;
 }
 
-/* 計画フォームエリア */
+/* targetフォームエリア */
 .target-wrapper{
   height: 100vh;
   width: 100vw;
@@ -406,7 +406,7 @@
 .plan-output{
   height: 80px;
 }
-/*edit newのフォーム*/
+/*targetのedit/newフォーム*/
 .plan-field{
   color: gray;
 }
@@ -461,4 +461,51 @@
   color: white;
   font-size: 20px;
   display: block;
+}
+/*recordsのeditページ*/
+/*フォーム部分はindexと共通*/
+.all-records{
+  background-color: whitesmoke;
+  width: 95%;
+  height: calc(100% - 150px);
+  margin: 15px auto;
+  padding: 5px 10px;
+}
+.records-title{
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  background-color: gray;
+  color: white;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.show-records{
+  display: flex;
+  margin-bottom: 3px;
+  border-bottom: 1px solid gray;
+}
+.show-date{
+  width: 120px;
+  text-align: center;
+}
+.show-weight{
+  width: 120px;
+  text-align: center;
+}
+.show-plan{
+  width: 120px;
+  text-align: center;
+}
+.show-memo{
+  width: 500px;
+  text-align: center;
+}
+.show_edit_link{
+  text-decoration: none;
+  color: white;
+  background-color: gray;
+  padding: 0 5px;
+  border-radius: 5px;
+  margin: 0 5px 2px 0;
 }

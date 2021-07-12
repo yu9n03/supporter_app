@@ -48,7 +48,7 @@ class RecordsController < ApplicationController
   end
 
   def set_contents
-    @records = Record.where(user_id: current_user.id).limit(10).order('input_day DESC')
+    @records = Record.where(user_id: current_user.id).order('input_day DESC')
     @user = User.find(current_user.id)
     @current_record = Record.where(user_id: current_user.id).limit(1).order('input_day DESC').last
     @target = Target.find_by(user_id: current_user.id)
