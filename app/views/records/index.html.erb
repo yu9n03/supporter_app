@@ -85,7 +85,7 @@
             <span class="my-plan-list">目標期間</span><span class="my-plan-value"><%= @target.period.name %></span>
             <span class="my-plan-list">目標まであと</span><span class="my-plan-value"><%= @current_record.weight - @target.goal_weight %>kg</span>
           <% else%>
-            <%= link_to "My planを設定しましょう", user_path(current_user), class: :nav__nickname %>
+            <%= link_to "My planを設定して、今日の体重を入力しましょう", user_path(current_user), class: :nav__nickname %>
           <% end %>
         </div>
       </div>
