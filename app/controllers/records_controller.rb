@@ -19,6 +19,7 @@ class RecordsController < ApplicationController
   end
 
   def edit
+    @records = Record.where(user_id: current_user.id).order('input_day DESC')
   end
 
   def update

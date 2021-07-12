@@ -51,8 +51,6 @@
 .actions{
   height: 50px;
   width: 200px;
-  background-color: skyblue;
-  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,22 +58,29 @@
 }
 .log_in_btn{
   border: none;
+  cursor: pointer;
+  padding: 10px 60px;
+  border-radius: 50px;
   background-color: skyblue;
+  box-shadow: 0px 3px #94bcd3;
   color: white;
   font-size: 20px;
   display: block;
+}
+.log_in_btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 .new-registration-title{
   color: skyblue;
   font-size: 30px;
   width: 240px;
-  margin: 100px auto 20px;
+  margin: 100px auto 15px;
 }
 .new-registration-area{
   height: 50px;
   width: 200px;
-  background-color: skyblue;
-  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,8 +89,17 @@
 .new_registration_btn{
   text-decoration: none;
   color: white;
+  background-color: skyblue;
+  box-shadow: 0px 3px #94bcd3;
+  padding: 10px 30px;
+  border-radius: 50px;
   font-size: 20px;
   display: block;
+}
+.new_registration_btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 
 /*新規登録画面*/
@@ -106,8 +120,6 @@
 .sign-up-actions{
   height: 50px;
   width: 200px;
-  background-color: skyblue;
-  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,10 +127,19 @@
 }
 .sign_up_btn{
   border: none;
+  cursor: pointer;
+  padding: 10px 60px;
+  border-radius: 50px;
   background-color: skyblue;
+  box-shadow: 0px 3px #94bcd3;
   color: white;
   font-size: 20px;
   display: block;
+}
+.sign_up_btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 /*ユーザー情報編集画面*/
 /*メイン部分はログイン画面と共通*/
@@ -146,8 +167,6 @@
 .edit-actions{
   height: 50px;
   width: 200px;
-  background-color: skyblue;
-  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,15 +174,31 @@
 }
 .edit_btn{
   border: none;
+  cursor: pointer;
+  padding: 10px 60px;
+  border-radius: 50px;
   background-color: skyblue;
+  box-shadow: 0px 3px #94bcd3;
   color: white;
   font-size: 20px;
   display: block;
 }
+.edit_btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+}
 .delete_btn{
+  cursor: pointer;
   background-color: crimson;
+  box-shadow: 0px 2px gray;
   color: white;
   border: none;
-  padding: 3px 5px;
+  padding: 3px 10px;
   border-radius: 10px;
+}
+.delete_btn:active{
+  position: relative;
+  top: 3px;
+  box-shadow: none;
 }
