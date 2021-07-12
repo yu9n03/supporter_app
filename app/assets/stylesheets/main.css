@@ -399,12 +399,43 @@
   color: skyblue;
   font-size: 50px;
 }
+.plan-output-area{
+  height: 430px;
+}
+.no-plan-message{
+  color: gray;
+  font-size: 30px;
+}
+.new-target-link{
+  text-decoration: none;
+  background-color: whitesmoke;
+  box-shadow: 0px 3px rgb(163, 161, 161);
+  color: gray;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.new-target-link:active{
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+}
 .plan-list{
   color: skyblue;
   font-size: 20px;
 }
 .plan-output{
   height: 80px;
+  color: gray;
+  font-size: 30px;
+  padding-top: 15px;
+}
+.plan-output-text{
+  height: 120px;
+  color: gray;
+  font-size: 20px;
+  padding-top: 10px;
 }
 /*targetのedit/newフォーム*/
 .plan-field{
@@ -448,19 +479,25 @@
 .plan-actions{
   height: 50px;
   width: 200px;
-  background-color: skyblue;
-  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 30px;
 }
 .plan_form_btn{
+  padding: 5px 50px;
   border: none;
+  border-radius: 20px;
   background-color: skyblue;
+  box-shadow: 0px 3px gray;
   color: white;
   font-size: 20px;
   display: block;
+}
+.plan_form_btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 /*recordsのeditページ*/
 /*フォーム部分はindexと共通*/
