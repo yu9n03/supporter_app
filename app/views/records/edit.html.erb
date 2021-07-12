@@ -1,0 +1,85 @@
+<%#ヘッダー%>
+<header class="header">
+  <div class="inner">
+    <div class="nav">
+      <div class="nav__left">
+        <%= link_to image_tag("logo.png", class: :header_logo), root_path %>
+      </div>
+      <% if user_signed_in? %>
+         <div class="nav__right">
+          <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
+          <%= link_to "My plan", user_path(current_user), class: :nav__nickname %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+<%#インプットエリア%>
+<%= form_with model: @record, local: true do |f| %>
+<div class="input-contents">
+  <div class="form-top">
+    <p class="input-message">入力してください</p>
+  </div>
+  <div class="form-middle">
+    <div class="form-content">
+      <p class="input-list">日付</p>
+      <div class="input-area">
+         <%= f.date_select :input_day, use_month_numbers: true, with_css_classes:"form-input" %>
+      </div>
+    </div>
+    <div class="form-content">
+      <p class="input-list">体重</p>
+      <div class="input-area">
+      <%= f.text_field :weight, class:"form-input", id:"weight", placeholder:"例) 80.25", maxlength:"5" %>
+      kg
+      </div>
+    </div>
+    <div class="form-content">
+      <p class="input-list">体脂<br>肪率</p>
+      <div class="input-area">
+      <%= f.text_field :body_fat, class:"form-input", id:"boby_fat", placeholder:"例) 22.55", maxlength:"5" %>
+      %</div>
+    </div>
+    <div class="form-content">
+      <p class="input-list">Plan<br>達成度</p>
+      <div class="input-area">
+        <%= f.select :assessment_id, [ ["○",1], ["△",2], ["×",3] ], {prompt: "達成度を選択"}, class:"form_input" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-bottom">
+    <div class="memo-contents">
+      <p class="memo-list">メモ</p>
+      <div class="memo-area">
+        <%= f.text_area :memo, class:"form-memo", id:"memo", placeholder:"３０文字以内で入力してください(任意)", maxlength:"30" %>
+      </div>
+    </div>
+    <div class="contents-submit-content">
+      <%= f.submit "SEND" ,class:"contents-submit-btn" %>
+    </div>
+  </div>
+</div>
+<% end %>
+<%#全レコード表示エリア%>
+<div class="all-records">
+    <div class="records-title">
+      Record List
+    </div>
+    <div class="show-records" >
+      <span class="show-date">日付</span>
+      <span class="show-weight">体重</span>
+      <span class="show-plan">Planの達成度</span>
+      <span class="show-memo">メモ</span>
+    </div>
+    <% @records.each do |record| %>
+    <div class="show-records">
+      <span class="show-date"><%= record.input_day %></span>
+      <span class="show-weight"><%= record.weight %>  kg</span>
+      <span class="show-plan"><%= record.assessment %></span>
+      <span class="show-memo"><%= record.memo %></span>
+      <%= link_to "修正" ,edit_record_path(record.id), class: :show_edit_link %>
+      <%= link_to "削除" ,record_path(record.id),method: :delete, class: :show_edit_link %>
+    </div>
+    <% end %>
+</div>

@@ -21,15 +21,15 @@
 
 ## records テーブル
 
-| Column        | Type       | Options                             |
-| ------------- | ---------- | ----------------------------------- |
-| weight        | decimal    | null: false, precision: 5, scale: 2 |
-| body_fat      | decimal    | null: false, precision: 4, scale: 2 |
-| memo          | text       |                                     |
-| assessment_id | integer    | null: false                         |
-| input_day     | date       | null: false                         |
-| user          | references | null: false, foreign_key: true      |
-| target        | references | null: false, foreign_key: true      |
+| Column     | Type       | Options                             |
+| ---------- | ---------- | ----------------------------------- |
+| weight     | decimal    | null: false, precision: 5, scale: 2 |
+| body_fat   | decimal    | null: false, precision: 4, scale: 2 |
+| memo       | text       |                                     |
+| assessment | string     | null: false                         |
+| input_day  | date       | null: false                         |
+| user       | references | null: false, foreign_key: true      |
+| target     | references | foreign_key: true, optional: true   |
 
 ### Association
 - belongs_to :user

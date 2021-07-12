@@ -2,8 +2,9 @@
 /* ヘッダー */
 .header {
   background-color: #f1f8fe;
-  padding: 15px 0px ;
+  padding: 10px 0px ;
   width: 100vw;
+  height: 70px;
 }
 .inner {
   width: 95%;
@@ -33,12 +34,12 @@
   color:#87CEFA;
 }
 .nav__logout{
-  padding: 0.4em 1.6em;
+  padding: 0.3em 0.8em;
   font-size: 20px;
   color: #87CEFA;
   text-decoration: none;
   border: 1px #87CEFA solid;
-  border-radius: 3px;
+  border-radius: 5px;
   user-select: none;
   transition: 0.4s ease;
 }
@@ -50,14 +51,13 @@
 
 /* body部分 */
 .main-wrapper{
-  background-color: rgb(185, 226, 241);
   width: 100vw;
   height: 100vh;
   overflow: scroll;
 }
 /* 入力フォームエリア */
 .input-contents{
-  background-color: wheat;
+  background-color: whitesmoke;
   width: 95%;
   height: 150px;
   margin: 15px auto;
@@ -70,23 +70,24 @@
 }
 .input-message{
   font-size: 15px;
-  color: darkred;
+  color: gray;
 }
 .form-middle{
   display: flex;
   justify-content: space-around;
 }
 .form-content{
-  background-color: darksalmon;
+  background-color: #87CEFA;
   height: 50px;
-  width: 30%;
+  width: 24%;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 .input-list{
-  color: darkred;
+  font-size: 12px;
+  color: gray;
   width: 45px;
   text-align: center;
 }
@@ -97,6 +98,21 @@
   margin: 0 5px;
   text-align: right;
 }
+.form-input {
+  height: 100%;
+  width: 80%;
+  border: none;
+}
+.form_input {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+.year, .month, .day{
+  height: 100%;
+  border: none;
+}
+
 .form-bottom{
   width: 100%;
   height: 50px;
@@ -105,13 +121,13 @@
 }
 .memo-contents{
   width: calc(91% - 80px);
-  background-color: darksalmon;
+  background-color: #87CEFA;
   display: flex;
   justify-content: space-around;
   align-items: center;  
 }
 .memo-list{
-  color: darkred;
+  color: gray;
   width: 45px;
   text-align: center;
 }
@@ -127,27 +143,26 @@
   border-style: none;
 }
 .contents-submit-content{
-  background-color: darksalmon;
-  width: 100px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .contents-submit-btn{
-  width: 80%;
+  width: 100px;
   height: 80%;
-  background-color: white;
-  color: darkred;
+  cursor: pointer;
+  background-color: #bee0f5;
+  box-shadow: 0px 3px #86adc5;
+  color: gray;
   font-size: 20px;
   border-style: none;
   border-radius: 5px;
-  transition: 0.4s ease;
 }
-.contents-submit-btn:hover{
-  opacity: 0.5;
-  color: #ffffff;
-  background: darkred;
+.contents-submit-btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 
 /* グラフ表示エリア */
@@ -156,7 +171,80 @@
   width: 95%;
   height: 500px;
   margin: 0px auto 15px;
-  padding: 15px;
+  padding: 10px;
+  display: flex;
+}
+.current-weight{
+  width: 230px;
+  height: 100%;
+  padding: 5px;
+  margin-right: 10px;
+  background-color: white;
+}
+.current-weight-title{
+  width: 220px;
+  color: white;
+  padding: 0 30px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid gray;
+  background-color: gray;
+}
+.weight-chart{
+  margin-bottom: 8px;
+  border-bottom: 1px solid gray;
+}
+.input-date{
+  font-size: 5px;
+  margin-right: 3px;
+}
+.input-weight{
+  font-size: 13px;
+  margin-right: 5px;
+}
+.edit_link{
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  background-color: rgb(165, 164, 164);
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+.graph-area{
+  height: 100%;
+  width: calc(100% - 250px);
+}
+.my-plan-area{
+  height: 80px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.my-plan-title{
+  background-color: gray;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+.my-plan-content{
+  padding: 13px 5px;
+}
+.my-plan-list{
+  color: gray;
+}
+.my-plan-value{
+  background-color: #f1f8fe;
+  padding: 10px 20px;
+  margin: 0 10px;
+}
+.my-chart-area{
+  height: calc(100% - 80px);
+  background-color: white;
+  padding: 5px;
+}
+.chart{
+  height: 100%;
+  width: 100%;
+  padding-top: 10px;
 }
 /* メッセージエリア*/
 .message-top{
@@ -219,15 +307,23 @@
 .chat-submit-content{
   width: 70px;
   height: 50px;
-  background-color: white;
   margin-left: 20px;
 }
 .chat-submit-btn{
-  background-color: blue;
-  color: white;
-  font-size: 15px;
   width: 100%;
-  height: 100%;
+  height: 90%;
+  cursor: pointer;
+  background-color: #bee0f5;
+  box-shadow: 0px 3px #86adc5;
+  color: gray;
+  font-size: 15px;
+  border-style: none;
+  border-radius: 5px;
+}
+.chat-submit-btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 
 /* 面談予約フォームエリア */
@@ -270,11 +366,21 @@
 .reservation-submit-btn{
   height: 100%;
   width: 100%;
-  color: white;
-  background-color: lightblue;
+  cursor: pointer;
+  background-color: #bee0f5;
+  box-shadow: 0px 3px #86adc5;
+  color: gray;
+  font-size: 20px;
+  border-style: none;
+  border-radius: 5px;
+}
+.reservation-submit-btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 
-/* 計画フォームエリア */
+/* targetフォームエリア */
 .target-wrapper{
   height: 100vh;
   width: 100vw;
@@ -300,7 +406,7 @@
 .plan-output{
   height: 80px;
 }
-/*edit newのフォーム*/
+/*targetのedit/newフォーム*/
 .plan-field{
   color: gray;
 }
@@ -355,4 +461,51 @@
   color: white;
   font-size: 20px;
   display: block;
+}
+/*recordsのeditページ*/
+/*フォーム部分はindexと共通*/
+.all-records{
+  background-color: whitesmoke;
+  width: 95%;
+  height: calc(100% - 150px);
+  margin: 15px auto;
+  padding: 5px 10px;
+}
+.records-title{
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  background-color: gray;
+  color: white;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.show-records{
+  display: flex;
+  margin-bottom: 3px;
+  border-bottom: 1px solid gray;
+}
+.show-date{
+  width: 120px;
+  text-align: center;
+}
+.show-weight{
+  width: 120px;
+  text-align: center;
+}
+.show-plan{
+  width: 120px;
+  text-align: center;
+}
+.show-memo{
+  width: 500px;
+  text-align: center;
+}
+.show_edit_link{
+  text-decoration: none;
+  color: white;
+  background-color: gray;
+  padding: 0 5px;
+  border-radius: 5px;
+  margin: 0 5px 2px 0;
 }
