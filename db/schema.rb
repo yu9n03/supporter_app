@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_053000) do
     t.decimal "weight", precision: 5, scale: 2, null: false
     t.decimal "body_fat", precision: 4, scale: 2, null: false
     t.text "memo"
-    t.integer "assessment_id", null: false
+    t.string "assessment", null: false
     t.date "input_day", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -45,7 +45,7 @@
       <div class="form-content">
         <p class="input-list">Plan<br>達成度</p>
         <div class="input-area">
-          <%= f.select :assessment_id, [ ["○",1], ["△",2], ["×",3] ], {prompt: "達成度を選択"}, class:"form_input" %>
+          <%= f.select :assessment, [ ["○"], ["△"], ["×"] ], {prompt: "達成度を選択"}, class:"form_input" %>
         </div>
       </div>
     </div>
@@ -79,9 +79,12 @@
       <div class="my-plan-area">
         <div class="my-plan-title">My Plan</div>
         <div class="my-plan-content">
+          <span class="my-plan-list">start</span><span class="my-plan-value"><%= @user.created_at.strftime('%Y/%m/%d') %>：<%= @user.basis_weight %>kg</span>
           <span class="my-plan-list">目標体重</span><span class="my-plan-value"><%= @target.goal_weight %>kg</span>
           <span class="my-plan-list">目標期間</span><span class="my-plan-value"><%= @target.period.name %></span>
+          <% if @records.present? %>
           <span class="my-plan-list">目標まであと</span><span class="my-plan-value"><%= @current_record.weight - @target.goal_weight %>kg</span>
+          <% end %>
         </div>
       </div>
       <div class="my-chart-area">

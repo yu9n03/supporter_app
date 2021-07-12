@@ -68,7 +68,7 @@
     <div class="show-records">
       <span class="show-date"><%= record.input_day %></span>
       <span class="show-weight"><%= record.weight %>  kg</span>
-      <span class="show-plan"><%= record.assessment_id %></span>
+      <span class="show-plan"><%= record.assessment %></span>
       <span class="show-memo"><%= record.memo %></span>
       <%= link_to "修正" ,edit_record_path(record.id), class: :edit_link %>
       <%= link_to "削除" ,record_path(record.id),method: :delete, class: :edit_link %>
