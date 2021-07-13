@@ -9,6 +9,7 @@
          <div class="nav__right">
           <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
           <%= link_to "My plan", user_path(current_user), class: :nav__nickname %>
+          <span class="nav__nickname" id="chat-modal">Message</span>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
         </div>
       <% end %>
@@ -103,47 +104,27 @@
   </div>
 
 <%#メッセージエリア%>
-  <div class="message-top">
-      メッセージ
+<div class="messages-contents" id="show-chat-modal">
+  <div class="message-main">  
+    <%= form_with model:@message, local: true do |f|%>
+    <div class="chat-message-form">
+      <div class="chat-message-area"> 
+        <%= f.text_field :text, class:"form-message", placeholder:"テキストを入力してください" %>
+      </div>
+      <div class="chat-submit-content">
+        <%= f.submit 'SEND', class:"chat-submit-btn", id:"chat-submit-btn" %>
+      </div>
+    </div>
+    <% end %>
+    <% @messages.each do |message| %>
+    <div class="message-set"> 
+      <div class="message-name"><%= message.user.nickname %></div>
+      <div class="message-date"><%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
+    </div>
+      <div class="message"><%= message.text %></div>
+      <% end %>
   </div>
-  <div class="messages-contents">
-    <div class="message-main">
-      <div class="message-set"> 
-        <div class="message-name">いわと</div>
-        <div class="message-date">2021-07-05 20:00</div>
-      </div>
-        <div class="message">おはようございます。今日も暑いですが、一生懸命頑張りましょうね！応援しております♪</div>
-    </div>
-    <div class="message-main">
-      <div class="message-set"> 
-        <div class="message-name">いわと</div>
-        <div class="message-date">2021-07-06 20:00</div>
-      </div>
-        <div class="message">お疲れ様です。今日はいかがでしたか！？体重などの入力待っています！</div>
-    </div>
-    <div class="message-main">
-      <div class="message-set"> 
-        <div class="message-name">いわと</div>
-        <div class="message-date">2021-07-07 20:00</div>
-      </div>
-        <div class="message">お疲れ様です。今日で３日目ですね。あと、今日は七夕です！目標をしっかり持っていきましょうね！</div>
-    </div>
-    <div class="message-main">
-      <div class="message-set"> 
-        <div class="message-name">いわと</div>
-        <div class="message-date">2021-07-08 20:00</div>
-      </div>
-        <div class="message">お疲れ様です。今日で4日目ですね。今日もよろしくお願いします！</div>
-    </div>
-  </div>
-  <div class="chat-message-form">
-    <div class="chat-message-area"> 
-      <input class="form-message" placeholder= "テキストを入力してください">
-    </div>
-    <div class="chat-submit-content">
-          <input class="chat-submit-btn" type="submit" value="送信">
-    </div>
-  </div>
+</div>
 
   <%#予約機能エリア%>
     <div class="reservation-top">

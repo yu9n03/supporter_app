@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../weight_calc")
+require('jquery')
+require("../script")
 import "chartkick/chart.js"
 
 

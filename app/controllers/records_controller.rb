@@ -7,6 +7,8 @@ class RecordsController < ApplicationController
 
   def index
     @record = Record.new
+    @messages = Message.where(user_id: current_user.id).or(Message.where(user_id:1)).order("created_at DESC")
+    @message = Message.new
   end
 
   def create

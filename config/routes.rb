@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :records,only: [:index, :create, :edit, :update, :destroy] 
   resources :users, only: :show 
   resources :targets, only: [:new, :create, :edit, :update]
-  resources :messages, only: [:index, :new, :create]
+  resources :messages, only: :create
 end
