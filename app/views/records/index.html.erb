@@ -104,29 +104,40 @@
   </div>
 
 <%#メッセージエリア%>
+<%#モーダルで実装%>
 <div class="messages-contents" id="show-chat-modal">
   <div class="message-main">  
     <div class="message-too-logo">Message</div>
     <div id="close-modal">
       <i class="fa fa-2x fa-times"></i>
     </div>
-    <%= form_with model:@message, local: true do |f|%>
+    <%= form_with model:@message, id:"message-form", local: true do |f|%>
     <div class="chat-message-form">
       <div class="chat-message-area"> 
-        <%= f.text_field :text, class:"form-message", placeholder:"テキストを入力してください" %>
+        <%= f.text_field :text, class:"form-message",id:"message_text", placeholder:"テキストを入力してください" %>
       </div>
       <div class="chat-submit-content">
         <%= f.submit 'SEND', class:"chat-submit-btn", id:"chat-submit-btn" %>
       </div>
     </div>
     <% end %>
-    <% @messages.each do |message| %>
-    <div class="message-set"> 
-      <div class="message-name"><%= message.user.nickname %></div>
-      <div class="message-date"><%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
+
+    <div id="list">
     </div>
-      <div class="message"><%= message.text %></div>
-      <% end %>
+
+    <% @messages.each do |message| %>
+      <div class="message-set"> 
+        <div class="message-name">
+          <%= message.user.nickname %>
+        </div>
+        <div class="message-date">
+          <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        </div>
+      </div>
+      <div class="message">
+        <%= message.text %>
+      </div>
+    <% end %>
   </div>
 </div>
 
