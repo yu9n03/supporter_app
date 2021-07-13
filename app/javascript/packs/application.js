@@ -9,6 +9,7 @@ require("channels")
 require("../weight_calc")
 require('jquery')
 require("../script")
+require("../message")
 import "chartkick/chart.js"
 
 
