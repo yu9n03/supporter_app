@@ -106,6 +106,10 @@
 <%#メッセージエリア%>
 <div class="messages-contents" id="show-chat-modal">
   <div class="message-main">  
+    <div class="message-too-logo">Message</div>
+    <div id="close-modal">
+      <i class="fa fa-2x fa-times"></i>
+    </div>
     <%= form_with model:@message, local: true do |f|%>
     <div class="chat-message-form">
       <div class="chat-message-area"> 

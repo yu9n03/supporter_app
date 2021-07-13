@@ -28,6 +28,7 @@
   color: #87CEFA;
   text-decoration: none;
   transition: 0.4s ease;
+  cursor: pointer;
 }
 .nav__nickname:hover{
   opacity: 0.5;
@@ -270,6 +271,18 @@
   width: 600px;
   height: 500px;
   overflow: scroll;
+}
+.message-too-logo{
+  color: skyblue;
+  text-align: center;
+  font-size: 25px;
+}
+.fa-times {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: rgba(128, 128, 128, 0.46);
+  cursor: pointer;
 }
 .message-set{
   display: flex;
