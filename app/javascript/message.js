@@ -3,10 +3,10 @@ const buildHTML = (XHR) => {
   const html = `
   <div class="message-set"> 
     <div class="message-name">
-      ${item.user_id}
+      ${item.user_nickname}
     </div>
     <div class="message-date">
-      ${item.created_at}
+      ${item.created_at.slice(0,19)}
     </div>
   </div>
   <div class="message">
@@ -14,7 +14,6 @@ const buildHTML = (XHR) => {
   </div>`;
   return html;
 };
-
 
 function post (){
   const submit = document.getElementById("chat-submit-btn");
