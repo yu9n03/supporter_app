@@ -25,7 +25,6 @@
 | Column | Type       | Options                           |
 | ------ | ---------- | --------------------------------- |
 | user   | references | null: false, foreign_key: true    |
-| target | references | foreign_key: true, optional: true |
 
 ### Association
 - belongs_to :user
