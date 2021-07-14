@@ -16,21 +16,32 @@ ActiveRecord::Schema.define(version: 2021_07_12_090600) do
     t.text "text", null: false
     t.string "user_nickname", null: false
     t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.decimal "weight", precision: 5, scale: 2, null: false
-    t.decimal "body_fat", precision: 4, scale: 2, null: false
+    t.decimal "body_fat", precision: 4, scale: 2
     t.text "memo"
     t.string "assessment", null: false
     t.date "input_day", null: false
     t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_records_on_room_id"
     t.index ["user_id"], name: "index_records_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "targets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,8 +49,10 @@ ActiveRecord::Schema.define(version: 2021_07_12_090600) do
     t.integer "period_id", null: false
     t.text "plan", null: false
     t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_targets_on_room_id"
     t.index ["user_id"], name: "index_targets_on_user_id"
   end
 
@@ -59,7 +72,11 @@ ActiveRecord::Schema.define(version: 2021_07_12_090600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "records", "rooms"
   add_foreign_key "records", "users"
+  add_foreign_key "rooms", "users"
+  add_foreign_key "targets", "rooms"
   add_foreign_key "targets", "users"
 end
