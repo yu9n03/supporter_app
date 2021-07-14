@@ -7,7 +7,6 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       t.string     :assessment, null: false
       t.date       :input_day, null: false
       t.references :user, null: false, foreign_key: true
-      t.references :room, null: false, foreign_key: true
       t.timestamps
     end
   end

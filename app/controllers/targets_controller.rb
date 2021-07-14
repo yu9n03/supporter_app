@@ -1,7 +1,14 @@
 class TargetsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :new, :edit]
   
+  def show
+    unless current_user.id == @user.id
+      redirect_to root_path
+    end
+  end
+
   def new
-    @user = User.find(current_user.id)
     @target = Target.new
   end
 
@@ -15,7 +22,6 @@ class TargetsController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
     @target = Target.find(params[:id])
   end
 
@@ -34,5 +40,7 @@ class TargetsController < ApplicationController
     params.require(:target).permit(:goal_weight, :period_id, :plan).merge(user_id: current_user.id)
   end
 
-
+  def set_user
+    @user = User.find(current_user.id)
+  end
 end
