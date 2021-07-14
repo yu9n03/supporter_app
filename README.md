@@ -66,11 +66,12 @@
 
 ## messages テーブル
   
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| text            | text       | null: false                    |
+| user_nickname   | string     | null: false                    |
+| user            | references | null: false, foreign_key: true |
+| room            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
