@@ -20,6 +20,13 @@
 <div class="input-contents">
   <div class="form-top">
     <p class="input-message">入力してください</p>
+    <div class="error-contents">
+        <% if @record.errors.any? %>
+        <div class="error-alert">
+          <span class='error-message'>入力に不備があります</li>
+        </div>
+        <% end %>
+      </div>
   </div>
   <div class="form-middle">
     <div class="form-content">

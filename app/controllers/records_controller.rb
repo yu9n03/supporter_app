@@ -7,7 +7,6 @@ class RecordsController < ApplicationController
 
   def index
     @record = Record.new
-    @messages = Message.where(user_id: current_user.id).or(Message.where(user_id:1)).order("created_at DESC")
     @message = Message.new
   end
 
@@ -28,6 +27,7 @@ class RecordsController < ApplicationController
     if @record.update(record_params)
       redirect_to action: :index
     else
+      @records = Record.where(user_id: current_user.id).order('input_day DESC')
       render :edit
     end
   end
@@ -54,6 +54,7 @@ class RecordsController < ApplicationController
     @user = User.find(current_user.id)
     @current_record = Record.where(user_id: current_user.id).limit(1).order('input_day DESC').last
     @target = Target.find_by(user_id: current_user.id)
+    @messages = Message.where(user_id: current_user.id).or(Message.where(user_id:1)).order("created_at DESC")
   end
 
   def user_confirmation

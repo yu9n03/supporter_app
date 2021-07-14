@@ -2,8 +2,11 @@ class MessagesController < ApplicationController
   
   def create
     message = Message.new(message_params)
-    message.save
-    render json: {message: message}
+    if message.save
+       render json: {message: message}
+    else
+      flash.now[:alert]
+    end
   end
 
   private
