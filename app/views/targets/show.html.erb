@@ -1,0 +1,30 @@
+<div class="target-wrapper">
+  <div class="plan-area">
+    <div class="plan-top-logo">My Plan</div>
+      <div class="plan-output-area">
+        <% unless @target.present? %>
+          <div class="no-plan-message">
+            目標が設定されていません
+          </div>
+          <%= link_to "目標を設定する", new_target_path, class:"new-target-link" %>
+        <% else %>
+          <%= link_to "目標を修正する", edit_target_path(@user.target), class:"new-target-link" %>
+          <div class="plan-form">
+            <div class="goal-weight">
+              <h1 class="plan-list">目標体重</h1>
+              <div class="plan-output"><%= @target.goal_weight %> kg</div>
+            </div>
+            <div class="period">
+              <h1 class="plan-list">期間</h1>
+              <div class="plan-output"><%= @target.period.name %></div>
+            </div>
+            <div class="plan">
+              <h1 class="plan-list">計画</h1>
+              <div class="plan-output-text"><%= @target.plan %></div>
+            </div>
+          <% end %>
+      </div>
+      <%= link_to "トップページへ戻る", root_path %>
+    </div>
+  </div>
+</div>

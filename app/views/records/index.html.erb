@@ -8,7 +8,9 @@
       <% if user_signed_in? %>
          <div class="nav__right">
           <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
-          <%= link_to "My plan", user_path(current_user), class: :nav__nickname %>
+          <% if @target.present?%>
+          <%= link_to "My plan", target_path(current_user.target), class: :nav__nickname %>
+          <% end%>
           <span class="nav__nickname" id="chat-modal">Message</span>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
         </div>
@@ -88,12 +90,14 @@
         <div class="my-plan-title">My Plan</div>
         <div class="my-plan-content">
           <span class="my-plan-list">start</span><span class="my-plan-value"><%= @user.created_at.strftime('%Y/%m/%d') %>：<%= @user.basis_weight %>kg</span>
-          <% if @records.present? && @target.present?%>
+          <% if @target.blank? %>
+            <%= link_to "My planを設定しましょう", new_target_path, class: :nav__nickname %>
+          <% elsif @records.blank? %>
+            <span class="my-plan-value">今日の体重を入力しましょう</span>
+          <% else %>
             <span class="my-plan-list">目標体重</span><span class="my-plan-value"><%= @target.goal_weight %>kg</span>
             <span class="my-plan-list">目標期間</span><span class="my-plan-value"><%= @target.period.name %></span>
             <span class="my-plan-list">目標まであと</span><span class="my-plan-value"><%= @current_record.weight - @target.goal_weight %>kg</span>
-          <% else%>
-            <%= link_to "My planを設定して、今日の体重を入力しましょう", user_path(current_user), class: :nav__nickname %>
           <% end %>
         </div>
       </div>
