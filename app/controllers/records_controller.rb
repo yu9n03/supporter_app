@@ -1,13 +1,22 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_record, only: [:edit, :update, :destroy]
   before_action :user_confirmation, only: [:edit, :update, :destroy]
-  before_action :set_contents, only: :create
+  before_action :set_contents, only: [:index, :create]
+
+
+  def index
+    @record = Record.new
+    @message = Message.new
+  end
 
   def create
     @record = Record.new(record_params)
-    @record.save
-    redirect_to root_path
-    # エラーハンドリングを実装したい
+    if @record.save
+      redirect_to action: :index
+    else
+      render :index
+    end
   end
 
   def edit
@@ -25,9 +34,9 @@ class RecordsController < ApplicationController
 
   def destroy
     if @record.destroy
-      redirect_to root_path
+      redirect_to action: :index
     else
-      redirect_to root_path
+      redirect_to action: :index
     end
   end
 

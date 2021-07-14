@@ -57,6 +57,7 @@
 | period_id   | integer    | null: false                         |
 | plan        | text       | null: false                         |
 | user        | references | null: false, foreign_key: true      |
+| room        | references | null: false, foreign_key: true      |
 
 ### Association
 - belongs_to :user
