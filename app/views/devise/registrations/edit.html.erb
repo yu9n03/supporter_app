@@ -7,7 +7,7 @@
 
   <%# 右サイドコンテンツ%>
   <div class="right-side">
-    <%= link_to "MYページへ戻る", root_path, class: :back_page %>
+    <%= link_to "MYページへ戻る", mypage_path(@user), class: :back_page %>
     <h2 class="edit-top">Edit <%= resource_name.to_s.humanize %></h2>
   
     <div class="edit-form-contents">

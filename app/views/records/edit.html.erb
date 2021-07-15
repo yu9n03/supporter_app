@@ -3,12 +3,15 @@
   <div class="inner">
     <div class="nav">
       <div class="nav__left">
-        <%= link_to image_tag("logo.png", class: :header_logo), root_path %>
+        <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
       </div>
       <% if user_signed_in? %>
          <div class="nav__right">
           <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
-          <%= link_to "My plan", user_path(current_user), class: :nav__nickname %>
+          <% if @user.target.present?%>
+          <%= link_to "My plan", target_path(@user.target), class: :nav__nickname %>
+          <% end%>
+          <span class="nav__nickname" id="chat-modal">Message</span>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
         </div>
       <% end %>
