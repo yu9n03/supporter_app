@@ -1,26 +1,172 @@
-<div class="target-wrapper">
-  <div class="plan-area">
-    <div class="plan-top-logo">My Plan</div>
-      <% unless @user.target.present? %>
-        <%= link_to "目標を設定する", new_target_path %>
-        <div class="new-plan-areat">目標を設定してください</div>
-      <% else %>
-        <%= link_to "目標を修正する", edit_target_path(@user.target) %>
-        <div class="plan-form">
-          <div class="goal-weight">
-            <h1 class="plan-list">目標体重</h1>
-            <div class="plan-output"><%= @user.target.goal_weight %> kg</div>
-          </div>
-          <div class="period">
-            <h1 class="plan-list">期間</h1>
-            <div class="plan-output"><%= @user.target.period.name %></div>
-          </div>
-          <div class="plan">
-            <h1 class="plan-list">計画</h1>
-            <div class="plan-output"><%= @user.target.plan %></div>
-          </div>
-        <% end %>
-        <%= link_to "トップページへ戻る", root_path %>
+<%#ヘッダー%>
+<header class="header">
+  <div class="inner">
+    <div class="nav">
+      <div class="nav__left">
+        <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
       </div>
+      <% if user_signed_in? %>
+         <div class="nav__right">
+          <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
+          <% if @user.target.present?%>
+          <%= link_to "My plan", target_path(@user.target), class: :nav__nickname %>
+          <% end%>
+          <span class="nav__nickname" id="chat-modal">Message</span>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</header>
+<%#インプットエリア%>
+<%= form_with model: @record, local: true do |f| %>
+<div class="main-wrapper">
+  <div class="input-contents">
+    <div class="form-top">
+      <p class="input-message">入力してください</p>
+      <div class="error-contents">
+        <% if @record.errors.any? %>
+        <div class="error-alert">
+          <span class='error-message'>入力に不備があります</li>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-middle">
+      <div class="form-content">
+        <p class="input-list">日付</p>
+        <div class="input-area">
+           <%= f.date_select :input_day, use_month_numbers: true, with_css_classes:"form-input" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <p class="input-list">体重</p>
+        <div class="input-area">
+        <%= f.text_field :weight, class:"form-input", id:"weight", placeholder:"例) 80.25", maxlength:"5" %>
+        kg
+        </div>
+      </div>
+      <div class="form-content">
+        <p class="input-list">体脂<br>肪率</p>
+        <div class="input-area">
+        <%= f.text_field :body_fat, class:"form-input", id:"boby_fat", placeholder:"例) 22.55", maxlength:"5" %>
+        %</div>
+      </div>
+      <div class="form-content">
+        <p class="input-list">Plan<br>達成度</p>
+        <div class="input-area">
+          <%= f.select :assessment, [ ["○"], ["△"], ["×"] ], {prompt: "達成度を選択"}, class:"form_input" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-bottom">
+      <div class="memo-contents">
+        <p class="memo-list">メモ</p>
+        <div class="memo-area">
+          <%= f.text_area :memo, class:"form-memo", id:"memo", placeholder:"３０文字以内で入力してください(任意)", maxlength:"30" %>
+        </div>
+      </div>
+      <div class="contents-submit-content">
+        <%= f.submit "SEND" ,class:"contents-submit-btn" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<%#グラフエリア%>
+  <div class="output-contents">
+    <div class="current-weight">
+      <div class="current-weight-title">最近のデータ(10件)</div>
+        <% @records.first(13).each do |record| %>
+        <div class="weight-chart">
+          <span class="input-date"><%= record.input_day %></span>
+          <span class="input-weight"><%= record.weight %>  kg</span>
+          <%= link_to "修正" ,edit_record_path(record.id), class: :edit_link %>
+          <%= link_to "削除" ,record_path(record.id),method: :delete, class: :edit_link %>
+        </div>
+        <% end %>
+    </div>
+    <div class="graph-area">
+      <div class="my-plan-area">
+        <div class="my-plan-title">My Plan</div>
+        <div class="my-plan-content">
+          <span class="my-plan-list">start</span><span class="my-plan-value"><%= @user.created_at.strftime('%Y/%m/%d') %>：<%= @user.basis_weight %>kg</span>
+          <% if @target.blank? %>
+            <%= link_to "My planを設定しましょう", new_target_path, class: :nav__nickname %>
+          <% elsif @records.blank? %>
+            <span class="my-plan-value">今日の体重を入力しましょう</span>
+          <% else %>
+            <span class="my-plan-list">目標体重</span><span class="my-plan-value"><%= @target.goal_weight %>kg</span>
+            <span class="my-plan-list">目標期間</span><span class="my-plan-value"><%= @target.period.name %></span>
+            <span class="my-plan-list">目標まであと</span><span class="my-plan-value"><%= @current_record.weight - @target.goal_weight %>kg</span>
+          <% end %>
+        </div>
+      </div>
+      <div class="my-chart-area">
+        <div class="my-plan-title">My Chart</div>
+        <div class="my-chart">
+          <%= line_chart @records.group(:input_day).sum(:weight),
+                 xtitle: "Date", ytitle: "Weight",
+                 min: @record.weight, max: @record.weight,
+                 height: "360px",
+                 curve: false %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%#メッセージエリア%>
+<%#モーダルで実装%>
+<div class="messages-contents" id="show-chat-modal">
+  <div class="message-main">  
+    <div class="message-too-logo">Message</div>
+    <div id="close-modal">
+      <i class="fa fa-2x fa-times"></i>
+    </div>
+    <%= form_with model:@message, id:"message-form", local: true do |f|%>
+    <div class="chat-message-form">
+      <div class="chat-message-area"> 
+        <%= f.text_field :text, class:"form-message",id:"message_text", placeholder:"テキストを入力してください" %>
+      </div>
+      <div class="chat-submit-content">
+        <%= f.submit 'SEND', class:"chat-submit-btn", id:"chat-submit-btn" %>
+      </div>
+    </div>
+    <% end %>
+
+    <div id="list">
+    </div>
+
+    <% @messages.each do |message| %>
+      <div class="message-set"> 
+        <div class="message-name">
+          <%= message.user.nickname %>
+        </div>
+        <div class="message-date">
+          <%= l message.created_at %>
+        </div>
+      </div>
+      <div class="message">
+        <%= message.text %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <%#予約機能エリア%>
+    <div class="reservation-top">
+      面談予約
+    </div>
+  <div class="reservations-contents">
+    <div class="reserved-date">
+      面談予約済みの日時：  2021-07-16  13:00
+    </div>
+    <div class="reservation-bottom">
+      <div class="reservation-input-form">
+        予約希望日時：アクティブハッシュで実装
+      </div>
+      <div class="reservation-submit-content">
+        <input class="reservation-submit-btn" type="submit" value="予約">
+      </div>
+    </div>
   </div>
 </div>

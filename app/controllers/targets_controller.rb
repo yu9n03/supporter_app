@@ -1,5 +1,10 @@
 class TargetsController < ApplicationController
   
+  def show
+    @user = User.find(current_user.id)
+    @target = Target.find(params[:id])
+  end
+
   def new
     @user = User.find(current_user.id)
     @target = Target.new
@@ -8,7 +13,7 @@ class TargetsController < ApplicationController
   def create
     @target = Target.new(target_params)
     if @target.save
-      redirect_to user_path(current_user)
+      redirect_to target_path(current_user.target)
     else
       render :new
     end
@@ -22,8 +27,8 @@ class TargetsController < ApplicationController
   def update
     @target = Target.find(params[:id])
     if @target.update(target_params)
-      redirect_to user_path(current_user)
-    else 
+      redirect_to target_path(current_user.target)
+    else
       render :edit
     end
   end

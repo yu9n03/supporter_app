@@ -28,6 +28,7 @@
   color: #87CEFA;
   text-decoration: none;
   transition: 0.4s ease;
+  cursor: pointer;
 }
 .nav__nickname:hover{
   opacity: 0.5;
@@ -59,7 +60,6 @@
 .input-contents{
   background-color: whitesmoke;
   width: 95%;
-  height: 150px;
   margin: 15px auto;
   padding: 5px 10px;
 }
@@ -105,7 +105,7 @@
 }
 .form_input {
   height: 100%;
-  width: 100%;
+  width: 80%;
   border: none;
 }
 .year, .month, .day{
@@ -116,6 +116,7 @@
 .form-bottom{
   width: 100%;
   height: 50px;
+  margin-bottom: 3px;
   display: flex;
   justify-content: space-around;
 }
@@ -247,27 +248,41 @@
   padding-top: 10px;
 }
 /* メッセージエリア*/
-.message-top{
-  width: 95%;
-  height: 30px;
-  background-color:dodgerblue;
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  margin: 0 auto;
-}
 .messages-contents{
-  background-color: dodgerblue;
-  width: 95%;
-  height: 200px;
-  margin: 0 auto;
-  padding: 5px;
-  overflow: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: none;
 }
 .message-main{
-  background-color: lightcyan;
-  width: 100%;
-  margin-bottom: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 0 10px 10px;
+  background-color: #e6ecf0;
+  border-radius: 10px;
+  width: 600px;
+  height: 500px;
+  overflow: scroll;
+}
+.message-too-logo{
+  color: skyblue;
+  text-align: center;
+  font-size: 25px;
+}
+.fa-times {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: rgba(128, 128, 128, 0.46);
+  cursor: pointer;
 }
 .message-set{
   display: flex;
@@ -282,17 +297,19 @@
   color: gray;
 }
 .message{
-  width: calc(100% - 100px 200px);
   margin-left: 20px;
 }
 .chat-message-form{
-  width: 95%;
+  width: 100%;
   height: 60px;
-  margin: 0 auto 15px;
+  margin: 5px auto;
   padding: 5px 15px 0;
-  background-color: dodgerblue;
+  background-color: skyblue;
+  border-radius: 5px;
   display: flex;
   justify-content: space-around;
+  position: sticky;
+  top: 0;
 }
 .chat-message-area{
   background-color:white;
@@ -322,7 +339,7 @@
 }
 .chat-submit-btn:active{
   position: relative;
-  top: 5px;
+  top: 3px;
   box-shadow: none;
 }
 
@@ -399,12 +416,43 @@
   color: skyblue;
   font-size: 50px;
 }
+.plan-output-area{
+  height: 430px;
+}
+.no-plan-message{
+  color: gray;
+  font-size: 30px;
+}
+.new-target-link{
+  text-decoration: none;
+  background-color: whitesmoke;
+  box-shadow: 0px 3px rgb(163, 161, 161);
+  color: gray;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.new-target-link:active{
+  position: relative;
+  top: 3px;
+  box-shadow: none;
+}
 .plan-list{
   color: skyblue;
   font-size: 20px;
 }
 .plan-output{
   height: 80px;
+  color: gray;
+  font-size: 30px;
+  padding-top: 15px;
+}
+.plan-output-text{
+  height: 120px;
+  color: gray;
+  font-size: 20px;
+  padding-top: 10px;
 }
 /*targetのedit/newフォーム*/
 .plan-field{
@@ -448,19 +496,25 @@
 .plan-actions{
   height: 50px;
   width: 200px;
-  background-color: skyblue;
-  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 30px;
 }
 .plan_form_btn{
+  padding: 5px 50px;
   border: none;
+  border-radius: 20px;
   background-color: skyblue;
+  box-shadow: 0px 3px gray;
   color: white;
   font-size: 20px;
   display: block;
+}
+.plan_form_btn:active{
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }
 /*recordsのeditページ*/
 /*フォーム部分はindexと共通*/
