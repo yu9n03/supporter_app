@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :records,only: [:index, :create, :edit, :update, :destroy] 
   resources :targets, only: [:show, :new, :create, :edit, :update]
   resources :messages, only: :create
+  resources :reservations, only: [:create, :edit, :update]
 end
