@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_072054) do
 
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "reservation_day", null: false
-    t.integer "reservation_time", null: false
+    t.string "reservation_time", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
