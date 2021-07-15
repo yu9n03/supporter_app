@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_one :target, dependent: :destroy
   has_many :records, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :reservation, dependent: :destroy
 end

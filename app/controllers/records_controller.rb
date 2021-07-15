@@ -9,7 +9,7 @@ class RecordsController < ApplicationController
     if @record.save
       redirect_to mypage_path(@user)
     else
-      render :index
+      render "users/show"
     end
   end
 

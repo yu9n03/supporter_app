@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @messages = Message.where(user_id: params[:id]).order("created_at DESC")
     @target = Target.find_by(user_id: params[:id])
     @current_record = Record.where(user_id: params[:id]).limit(1).order('input_day DESC').last
+    @reservation = Reservation.new
+    @reserved = Reservation.where(user_id: params[:id]).limit(1).order('created_at DESC').last
   end
   
 end
