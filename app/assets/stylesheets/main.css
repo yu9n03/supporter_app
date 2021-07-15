@@ -363,6 +363,7 @@
 .reservations-contents{
   background-color: white;
   padding: 15px;
+  display: none;
 }
 .reserved-date{
   background-color: #87CEFA;
