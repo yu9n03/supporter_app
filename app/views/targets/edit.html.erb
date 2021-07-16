@@ -4,6 +4,6 @@
     <div class="plan-form">
         <%= render partial: "form", locals: { target: @target } %>
     </div>
-  <%= link_to "戻る", target_path(current_user.target), class: :back_target_index %>
+  <%= link_to "戻る", target_path(@target), class: :back_target_index %>
   </div>
 </div>

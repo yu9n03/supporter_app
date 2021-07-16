@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'devise/sessions#new'
+  root to: 'users#show'
   devise_for :users
   get "users/:id" => "users#show", as: :mypage
     namespace :admin do
