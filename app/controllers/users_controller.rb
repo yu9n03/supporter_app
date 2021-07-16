@@ -11,6 +11,18 @@ class UsersController < ApplicationController
     @current_record = Record.where(user_id: params[:id]).limit(1).order('input_day DESC').last
     @reservation = Reservation.new
     @reserved = Reservation.where(user_id: params[:id]).limit(1).order('created_at DESC').last
+    count_day
   end
-  
+
+  private
+  def count_day
+    @target = Target.find_by(user_id: params[:id])
+    @period = @target.period_id
+    @start_day = @target.created_at
+    @last_day = @start_day.since(@period.month)
+    @today = Time.now
+    
+    @remaining_second = (@last_day - @today).to_i
+    @remaining_day = ((@last_day - @today)/ 1.days).floor
+  end
 end

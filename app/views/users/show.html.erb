@@ -99,7 +99,7 @@
             <span class="my-plan-value">今日の体重を入力しましょう</span>
           <% else %>
             <span class="my-plan-list">目標体重</span><span class="my-plan-value"><%= @target.goal_weight %>kg</span>
-            <span class="my-plan-list">目標期間</span><span class="my-plan-value"><%= @target.period.name %></span>
+            <span class="my-plan-list">残り</span><span class="my-plan-value"><%= @remaining_day %>日</span>
             <span class="my-plan-list">目標まであと</span><span class="my-plan-value"><%= @current_record.weight - @target.goal_weight %>kg</span>
           <% end %>
         </div>
