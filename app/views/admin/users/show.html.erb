@@ -1,3 +1,4 @@
+個人詳細画面（管理者用）
 <%#ヘッダー%>
 <header class="header">
   <div class="inner">
@@ -5,79 +6,19 @@
       <div class="nav__left">
         <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
       </div>
-      <% if current_user.admin? %>
-      <%= link_to "管理画面", admin_users_path %>
-      <% end %>
-      <% if user_signed_in? %>
-         <div class="nav__right">
-          <%= link_to @user.nickname, edit_user_registration_path, class: :nav__nickname %>
+      <div class="nav__right">
+          <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
+          <span class="nav__nickname"><%= @user.nickname %></span>
           <% if @target.present?%>
           <%= link_to "My plan", target_path(@target), class: :nav__nickname %>
           <% end%>
           <span class="nav__nickname" id="chat-modal">Message</span>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
         </div>
-      <% end %>
     </div>
   </div>
 </header>
 
 <%#メイン%>
-<%#インプットエリア%>
-<%= form_with model: @record, local: true do |f| %>
-<div class="main-wrapper">
-  <div class="input-contents">
-    <div class="form-top">
-      <p class="input-message">入力してください</p>
-      <div class="error-contents">
-        <% if @record.errors.any? %>
-        <div class="error-alert">
-          <span class='error-message'>入力に不備があります</li>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="form-middle">
-      <div class="form-content">
-        <p class="input-list">日付</p>
-        <div class="input-area">
-           <%= f.date_select :input_day, use_month_numbers: true, with_css_classes:"form-input" %>
-        </div>
-      </div>
-      <div class="form-content">
-        <p class="input-list">体重</p>
-        <div class="input-area">
-        <%= f.text_field :weight, class:"form-input", id:"weight", placeholder:"例) 80.25", maxlength:"5" %>
-        kg
-        </div>
-      </div>
-      <div class="form-content">
-        <p class="input-list">体脂<br>肪率</p>
-        <div class="input-area">
-        <%= f.text_field :body_fat, class:"form-input", id:"boby_fat", placeholder:"例) 22.55", maxlength:"5" %>
-        %</div>
-      </div>
-      <div class="form-content">
-        <p class="input-list">Plan<br>達成度</p>
-        <div class="input-area">
-          <%= f.select :assessment, [ ["○"], ["△"], ["×"] ], {prompt: "達成度を選択"}, class:"form_input" %>
-        </div>
-      </div>
-    </div>
-    <div class="form-bottom">
-      <div class="memo-contents">
-        <p class="memo-list">メモ</p>
-        <div class="memo-area">
-          <%= f.text_area :memo, class:"form-memo", id:"memo", placeholder:"３０文字以内で入力してください(任意)", maxlength:"30" %>
-        </div>
-      </div>
-      <div class="contents-submit-content">
-        <%= f.submit "SEND" ,class:"contents-submit-btn" %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-
   <%#グラフエリア%>
   <div class="output-contents">
     <div class="current-weight">
@@ -86,8 +27,7 @@
         <div class="weight-chart">
           <span class="input-date"><%= record.input_day %></span>
           <span class="input-weight"><%= record.weight %>  kg</span>
-          <%= link_to "修正" ,edit_record_path(record.id), class: :edit_link %>
-          <%= link_to "削除" ,record_path(record.id),method: :delete, class: :edit_link %>
+          <%= link_to "詳細" ,edit_record_path(record.id), class: :edit_link %>
         </div>
         <% end %>
     </div>
@@ -172,17 +112,6 @@
           /  <%= @reserved.reservation_time %>  
           <%= link_to "削除", reservation_path(@reserved.id), method: :delete, class: :edit_link %>
         <% end %>
-      </div>
-      <div class="reservation-bottom">
-        <div class="reservation-input-form">
-          <%= form_with model:@reservation, local: true do |f| %>
-          <%= f.date_select :reservation_day, use_month_numbers: true %>
-          <%= f.select :reservation_time, [["10:00"], ["11:00"], ["13:00"], ["14:00"], ["15:00"]], {prompt: "時間を選択"}, { id: "reservation_time", class: "reservation_time" }%>
-        </div>
-        <div class="reservation-submit-content">
-          <%= f.submit "予約" ,class:"reservation-submit-btn" %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>

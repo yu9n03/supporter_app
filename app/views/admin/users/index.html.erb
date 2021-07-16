@@ -1,8 +1,14 @@
-<% @users.each do |user| %>
+<div class="admin-wrapper">
+  <div class="admin-top-logo">
+    管理画面
+  </div>
+
+  <% @users.each do |user| %>
   <div class="show-records">
     <span class="show-date"><%= user.id %></span>
-    <span class="show-weight"><%= user.nickname %>  kg</span>
+    <span class="show-weight"><%= user.nickname %></span>
     <%= link_to "MyPageへ" ,mypage_path(user.id), class: :show_edit_link %>
-    <%= link_to "削除" ,user_registration_path(user.id),method: :delete, class: :show_edit_link %>
+    <%= link_to "詳細", admin_user_path(user.id),class: :show_edit_link%>
   </div>
-<% end %>
+  <% end %>
+</div>
