@@ -11,10 +11,12 @@ class UsersController < ApplicationController
     @current_record = Record.where(user_id: params[:id]).limit(1).order('input_day DESC').last
     @reservation = Reservation.new
     @reserved = Reservation.where(user_id: params[:id]).limit(1).order('created_at DESC').last
-    count_day
+    
+    if @target.present?
+      count_day
+    end
   end
 
-  private
   def count_day
     @target = Target.find_by(user_id: params[:id])
     @period = @target.period_id
