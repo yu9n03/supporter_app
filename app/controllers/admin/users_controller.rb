@@ -4,13 +4,15 @@ class Admin::UsersController < ApplicationController
   
   def index
     @users = User.all
+    @message = Message.new
+    @messages = Message.where(user_id: params[:id]).order("created_at DESC")
   end
 
   def show
     @record = Record.new
     @records = Record.where(user_id: params[:id]).order('input_day DESC')
     @message = Message.new
-    @messages = Message.where(user_id: params[:id]).order("created_at DESC")
+    @messages = Message.where(room_id: params[:id]).order("created_at DESC")
     @target = Target.find_by(user_id: params[:id])
     @current_record = Record.where(user_id: params[:id]).limit(1).order('input_day DESC').last
     @reserved = Reservation.where(user_id: params[:id]).limit(1).order('created_at DESC').last

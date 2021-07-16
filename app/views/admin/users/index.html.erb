@@ -1,6 +1,7 @@
 <div class="admin-wrapper">
   <div class="admin-top-logo">
     管理画面
+    <span class="show_edit_link" id="chat-modal">Message</span>
   </div>
 
   <% @users.each do |user| %>
@@ -12,3 +13,44 @@
   </div>
   <% end %>
 </div>
+
+<%#メッセージエリア%>
+  <%#モーダルで実装%>
+  <div class="messages-contents" id="show-chat-modal">
+    <div class="message-main">  
+      <div class="message-too-logo">
+        Message
+      </div>
+      <div id="close-modal">
+        <i class="fa fa-2x fa-times"></i>
+      </div>
+      <%= form_with model:@message, id:"message-form", local: true do |f|%>
+      <%= f.collection_select(:room_id, @users, :id, :nickname ) %>
+      <div class="chat-message-form">
+        <div class="chat-message-area"> 
+          <%= f.text_field :text, class:"form-message",id:"message_text", placeholder:"テキストを入力してください" %>
+        </div>
+        <div class="chat-submit-content">
+          <%= f.submit 'SEND', class:"chat-submit-btn", id:"chat-submit-btn" %>
+        </div>
+      </div>
+      <% end %>
+  
+      <div id="list">
+      </div>
+  
+      <% @messages.each do |message| %>
+        <div class="message-set"> 
+          <div class="message-name">
+            <%= message.user.nickname %>
+          </div>
+          <div class="message-date">
+            <%= l message.created_at %>
+          </div>
+        </div>
+        <div class="message">
+          <%= message.text %>
+        </div>
+      <% end %>
+    </div>
+  </div>
