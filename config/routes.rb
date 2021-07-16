@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'users#show'
+  root to: 'devise/sessions#new'
   devise_for :users
   get "users/:id" => "users#show", as: :mypage
+    namespace :admin do
+      resources :users, only: [:index, :show, :destroy]
+    end
   resources :records,only: [:index, :create, :edit, :update, :destroy] 
   resources :targets, only: [:show, :new, :create, :edit, :update]
   resources :messages, only: :create
