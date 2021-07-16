@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     end
   end
 
+  private
   def count_day
     @target = Target.find_by(user_id: params[:id])
     @period = @target.period_id
