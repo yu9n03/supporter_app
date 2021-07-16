@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @record = Record.new
     @records = Record.where(user_id: params[:id]).order('input_day DESC')
     @message = Message.new

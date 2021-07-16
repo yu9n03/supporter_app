@@ -7,7 +7,7 @@
       </div>
       <% if user_signed_in? %>
          <div class="nav__right">
-          <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
+          <%= link_to @user.nickname, edit_user_registration_path, class: :nav__nickname %>
           <% if @user.target.present?%>
           <%= link_to "My plan", target_path(@user.target), class: :nav__nickname %>
           <% end%>
