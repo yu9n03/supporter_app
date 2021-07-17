@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   def index
     @users = User.all
     @message = Message.new
-    @messages = Message.where(user_id: params[:id]).order("created_at DESC")
+    @messages = Message.where(room_id: params[:id]).order("created_at DESC")
   end
 
   def show

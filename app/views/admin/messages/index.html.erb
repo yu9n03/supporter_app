@@ -1,0 +1,25 @@
+<%= render "upper" %>
+
+
+<%#メッセージエリア%>
+    <div class="admin-message-main">  
+      <div class="message-too-logo">
+        Message
+      </div>
+      <%= form_with model:@message, id:"message-form", local: true do |f|%>
+      <span class="messageroom_name"><%= @room.nickname %></span>
+      <div class="chat-message-form">
+        <div class="chat-message-area"> 
+          <%= f.text_field :text, class:"form-message",id:"message_text", placeholder:"テキストを入力してください" %>
+        </div>
+        <div class="chat-submit-content">
+          <%= f.submit 'SEND', class:"chat-submit-btn", id:"chat-submit-btn" %>
+        </div>
+      </div>
+      <% end %>
+  
+      <div id="list">
+      </div>
+  
+      <%= render partial: "/users/messages", collection: @messages %>
+    </div>
