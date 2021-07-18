@@ -8,7 +8,7 @@
   <div class="show-records">
     <span class="show-date"><%= user.id %></span>
     <span class="show-weight"><%= user.nickname %></span>
-    <%= link_to "Message" , admin_messages_path(user), class: :show_edit_link %>
+    <%= link_to "Message" , admin_room_messages_path(user.id), class: :show_edit_link %>
     <%= link_to "MyPageへ" ,mypage_path(user.id), class: :show_edit_link %>
     <%= link_to "詳細", admin_user_path(user.id),class: :show_edit_link%>
   </div>

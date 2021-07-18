@@ -11,13 +11,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    if current_user.admin?
-      @room = User.find(params[:format])
-      @room_id = @room.id
-      params.require(:message).permit(:text,).merge(user_nickname: current_user.nickname, user_id: current_user.id, room_id: @room_id)
-    else
-      params.require(:message).permit(:text).merge(user_nickname: current_user.nickname, user_id: current_user.id, room_id: current_user.id)
-    end
+    params.require(:message).permit(:text).merge(user_nickname: current_user.nickname, user_id: current_user.id, room_id: current_user.id)
   end
 
 end

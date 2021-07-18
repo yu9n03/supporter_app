@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "users/:id" => "users#show", as: :mypage
     namespace :admin do
       resources :users, only: [:index, :show, :destroy]
-      resources :rooms do 
+      resources :rooms, only: :create do 
         resources :messages, only: [:index, :create]
       end
     end

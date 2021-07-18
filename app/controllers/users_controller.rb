@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :create_room
 
   def show
     @user = User.find(params[:id])
@@ -27,5 +28,12 @@ class UsersController < ApplicationController
     
     @remaining_second = (@last_day - @today).to_i
     @remaining_day = ((@last_day - @today)/ 1.days).floor
+  end
+
+  def create_room
+    @room = Room.find_by(user_id: params[:id])
+    if @room.nil?
+    @room = Room.create(user_id: params[:id])
+    end
   end
 end

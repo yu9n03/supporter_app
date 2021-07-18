@@ -43,4 +43,5 @@ class Admin::UsersController < ApplicationController
     @remaining_second = (@last_day - @today).to_i
     @remaining_day = ((@last_day - @today)/ 1.days).floor
   end
+
 end
