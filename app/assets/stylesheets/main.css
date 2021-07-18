@@ -1,4 +1,38 @@
+/* home */
+.home-wrapper{
+  background-color: #bee0f5;
+  position: relative;
+}
+.home-contents{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.home-content{
+  height: 150px;
+  width: 300px;
+  background-color: white;
+  margin-right: 10px;
+  padding: 45px 70px;
+}
+.link-to{
+  text-decoration: none;
+  color: #87CEFA;
+  font-size: 40px;
+}
+.home-content-right{
+  font-size: 100px;
+  color: white;
+}
 
+/* MyPage */
 /* ヘッダー */
 .header {
   background-color: #f1f8fe;
