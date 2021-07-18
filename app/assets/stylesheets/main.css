@@ -231,10 +231,11 @@
 }
 .my-plan-list{
   color: gray;
+  font-size: 0.8em;
 }
 .my-plan-value{
   background-color: #f1f8fe;
-  padding: 10px 20px;
+  padding: 10px 10px;
   margin: 0 10px;
 }
 .my-chart-area{

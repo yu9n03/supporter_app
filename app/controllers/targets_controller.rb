@@ -1,5 +1,6 @@
 class TargetsController < ApplicationController
-  
+  before_action :set_target, only: [:show, :edit, :update]
+
   def show
     @user = User.find(current_user.id)
     @target = Target.find(params[:id])
@@ -25,7 +26,6 @@ class TargetsController < ApplicationController
   end
 
   def update
-    @target = Target.find(params[:id])
     if @target.update(target_params)
       redirect_to target_path(current_user.target)
     else
@@ -37,6 +37,10 @@ class TargetsController < ApplicationController
 
   def target_params
     params.require(:target).permit(:goal_weight, :period_id, :plan).merge(user_id: current_user.id)
+  end
+
+  def set_target
+    @target = Target.find(params[:id])
   end
 
 

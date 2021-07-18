@@ -1,0 +1,79 @@
+個人詳細画面（管理者用）
+<%#ヘッダー%>
+<header class="header">
+  <div class="inner">
+    <div class="nav">
+      <div class="nav__left">
+        <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
+      </div>
+      <div class="nav__right">
+          <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
+          <span class="nav__nickname"><%= @user.nickname %></span>
+          <% if @target.present?%>
+          <%= link_to "My plan", target_path(@target), class: :nav__nickname %>
+          <% end%>
+        </div>
+    </div>
+  </div>
+</header>
+
+<%#メイン%>
+  <%#グラフエリア%>
+  <div class="output-contents">
+    <div class="current-weight">
+      <div class="current-weight-title">最近のデータ(10件)</div>
+        <% @records.first(13).each do |record| %>
+        <div class="weight-chart">
+          <span class="input-date"><%= record.input_day %></span>
+          <span class="input-weight"><%= record.weight %>  kg</span>
+          <%= link_to "詳細" ,edit_record_path(record.id), class: :edit_link %>
+        </div>
+        <% end %>
+    </div>
+    <div class="graph-area">
+      <div class="my-plan-area">
+        <div class="my-plan-title">My Plan</div>
+        <div class="my-plan-content">
+          <span class="my-plan-list">start</span><span class="my-plan-value"><%= @user.created_at.strftime('%Y/%m/%d') %>：<%= @user.basis_weight %>kg</span>
+          <% if @target.blank? %>
+            <%= link_to "My planを設定しましょう", new_target_path, class: :nav__nickname %>
+          <% elsif @records.blank? %>
+            <span class="my-plan-value">今日の体重を入力しましょう</span>
+          <% else %>
+            <span class="my-plan-list">目標体重</span><span class="my-plan-value"><%= @target.goal_weight %>kg</span>
+            <span class="my-plan-list">残り</span><span class="my-plan-value"><%= @remaining_day %>日</span>
+            <span class="my-plan-list">目標まであと</span><span class="my-plan-value"><%= @current_record.weight - @target.goal_weight %>kg</span>
+          <% end %>
+        </div>
+      </div>
+      <div class="my-chart-area">
+        <div class="my-plan-title">My Chart</div>
+        <div class="my-chart">
+          <%= line_chart @records.group(:input_day).sum(:weight),
+                 xtitle: "Date", ytitle: "Weight",
+                 min: @record.weight, max: @record.weight,
+                 height: "360px",
+                 curve: false %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%#予約機能エリア%>
+  <div class="reservation-wrapper">
+    <div class="reservation-top-logo" >
+      ↓  面談予約を確認
+    </div>
+    <div class="reservations-contents" >
+      <div class="reserved-date">
+        <% if @reserved.blank? %>
+          面談予約はありません
+        <% else %>
+          面談予約：<%= @reserved.reservation_day %>  
+          /  <%= @reserved.reservation_time %>  
+          <%= link_to "削除", reservation_path(@reserved.id), method: :delete, class: :edit_link %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,24 +1,38 @@
-class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :create_room
+class Admin::UsersController < ApplicationController
+  before_action :if_not_admin
+  before_action :set_user, only: [:show, :destroy]
+  
+  def index
+    @users = User.all
+    @message = Message.new
+    @messages = Message.where(room_id: params[:id]).order("created_at DESC")
+  end
 
   def show
-    @user = User.find(params[:id])
     @record = Record.new
     @records = Record.where(user_id: params[:id]).order('input_day DESC')
     @message = Message.new
     @messages = Message.where(room_id: params[:id]).order("created_at DESC")
     @target = Target.find_by(user_id: params[:id])
     @current_record = Record.where(user_id: params[:id]).limit(1).order('input_day DESC').last
-    @reservation = Reservation.new
     @reserved = Reservation.where(user_id: params[:id]).limit(1).order('created_at DESC').last
-    
     if @target.present?
       count_day
     end
   end
 
+  def destroy
+  end
+  
   private
+  def if_not_admin
+    redirect_to root_path unless current_user.admin?
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def count_day
     @target = Target.find_by(user_id: params[:id])
     @period = @target.period_id
@@ -30,10 +44,4 @@ class UsersController < ApplicationController
     @remaining_day = ((@last_day - @today)/ 1.days).floor
   end
 
-  def create_room
-    @room = Room.find_by(user_id: params[:id])
-    if @room.nil?
-    @room = Room.create(user_id: params[:id])
-    end
-  end
 end

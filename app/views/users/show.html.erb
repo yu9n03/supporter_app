@@ -5,11 +5,14 @@
       <div class="nav__left">
         <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
       </div>
+      <% if current_user.admin? %>
+      <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
+      <% end %>
       <% if user_signed_in? %>
          <div class="nav__right">
-          <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
-          <% if @user.target.present?%>
-          <%= link_to "My plan", target_path(@user.target), class: :nav__nickname %>
+          <%= link_to @user.nickname, edit_user_registration_path, class: :nav__nickname %>
+          <% if @target.present?%>
+          <%= link_to "My plan", target_path(@target), class: :nav__nickname %>
           <% end%>
           <span class="nav__nickname" id="chat-modal">Message</span>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
@@ -99,7 +102,7 @@
             <span class="my-plan-value">今日の体重を入力しましょう</span>
           <% else %>
             <span class="my-plan-list">目標体重</span><span class="my-plan-value"><%= @target.goal_weight %>kg</span>
-            <span class="my-plan-list">目標期間</span><span class="my-plan-value"><%= @target.period.name %></span>
+            <span class="my-plan-list">残り</span><span class="my-plan-value"><%= @remaining_day %>日</span>
             <span class="my-plan-list">目標まであと</span><span class="my-plan-value"><%= @current_record.weight - @target.goal_weight %>kg</span>
           <% end %>
         </div>
@@ -139,19 +142,8 @@
       <div id="list">
       </div>
   
-      <% @messages.each do |message| %>
-        <div class="message-set"> 
-          <div class="message-name">
-            <%= message.user.nickname %>
-          </div>
-          <div class="message-date">
-            <%= l message.created_at %>
-          </div>
-        </div>
-        <div class="message">
-          <%= message.text %>
-        </div>
-      <% end %>
+      <%= render partial: "messages", collection: @messages %>
+      
     </div>
   </div>
 

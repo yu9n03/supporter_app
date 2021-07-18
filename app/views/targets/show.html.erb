@@ -8,7 +8,7 @@
           </div>
           <%= link_to "目標を設定する", new_target_path, class:"new-target-link" %>
         <% else %>
-          <%= link_to "目標を修正する", edit_target_path(@user.target), class:"new-target-link" %>
+          <%= link_to "目標を修正する", edit_target_path(@target), class:"new-target-link" %>
           <div class="plan-form">
             <div class="goal-weight">
               <h1 class="plan-list">目標体重</h1>

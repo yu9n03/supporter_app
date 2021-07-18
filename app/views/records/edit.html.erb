@@ -5,6 +5,9 @@
       <div class="nav__left">
         <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
       </div>
+      <% if current_user.admin? %>
+      <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
+      <% end %>
       <% if user_signed_in? %>
          <div class="nav__right">
           <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
