@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :create_room
+  before_action :contributor_confirmation
 
   def show
     @user = User.find(params[:id])
@@ -36,5 +37,10 @@ class UsersController < ApplicationController
     if @room.nil?
     @room = Room.create(user_id: params[:id])
     end
+  end
+
+  def contributor_confirmation
+    @user = User.find(params[:id])
+    redirect_to root_path unless current_user == @user || current_user.admin?
   end
 end
