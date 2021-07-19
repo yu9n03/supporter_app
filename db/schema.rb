@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_012356) do
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.decimal "weight", precision: 5, scale: 2, null: false
-    t.decimal "body_fat", precision: 4, scale: 2, null: false
+    t.decimal "body_fat", precision: 4, scale: 2
     t.text "memo"
     t.string "assessment", null: false
     t.date "input_day", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_012356) do
   create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "reservation_day", null: false
     t.string "reservation_time", null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_reservations_on_user_id"

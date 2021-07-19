@@ -54,7 +54,7 @@
       <div class="form-content">
         <p class="input-list">体脂<br>肪率</p>
         <div class="input-area">
-        <%= f.text_field :body_fat, class:"form-input", id:"boby_fat", placeholder:"例) 22.55", maxlength:"5" %>
+        <%= f.text_field :body_fat, class:"form-input", id:"boby_fat", placeholder:"例) 22.55（任意）", maxlength:"5" %>
         %</div>
       </div>
       <div class="form-content">
@@ -142,7 +142,7 @@
       <div id="list">
       </div>
   
-      <%= render partial: "messages", collection: @messages %>
+      <%= render partial: "users/messages", collection: @messages %>
       
     </div>
   </div>
