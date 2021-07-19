@@ -1,19 +1,25 @@
 <div class="admin-wrapper">
-  <div class="admin-top-logo">
-    管理画面
+  <div class="admin-header">
+    <div class="admin-top-logo">
+      管理画面
+    </div>
+    <div class="admin-logout">
+      <%=link_to "ログアウト",  destroy_user_session_path, method: :delete, class:"nav__logout"%>
+    </div>
   </div>
-
-  <% @users.each do |user| %>
-  <div class="show-records">
-    <span class="show-date"><%= user.id %></span>
-    <span class="show-weight"><%= user.nickname %></span>
-    <%= link_to "Message/面談管理" , admin_room_messages_path(user.id), class: :show_edit_link %>
-    <%= link_to "詳細", admin_user_path(user.id),class: :show_edit_link%>
-    <span>
-      予約：
-      <%= user.reservation.pluck(:reservation_day, :reservation_time)%>
-    </span>
-    <%= link_to "MyPageへ" ,mypage_path(user.id), class: :show_edit_link %>
+  <div class="all-users">
+    <% @users.each do |user| %>
+    <div class="show-records">
+      <span class="show-date"><%= user.id %></span>
+      <span class="show-weight"><%= user.nickname %></span>
+      <%= link_to "Message/面談管理" , admin_room_messages_path(user.id), class: :show_edit_link %>
+      <%= link_to "詳細", admin_user_path(user.id),class: :show_edit_link%>
+      <span>
+        予約：
+        <%= user.reservation.pluck(:reservation_day, :reservation_time)%>
+      </span>
+      <%= link_to "MyPageへ" ,mypage_path(user.id), class: :show_edit_link %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

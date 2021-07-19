@@ -1,6 +1,11 @@
 <div class="admin-wrapper">
-  <div class="admin-top-logo">
-    管理画面
+  <div class="admin-header">
+    <div class="admin-top-logo">
+      管理画面
+    </div>
+    <div class="admin-logout">
+      <%=link_to "ログアウト",  destroy_user_session_path, method: :delete, class:"nav__logout"%>
+    </div>
   </div>
 
   <% @users.each do |user| %>

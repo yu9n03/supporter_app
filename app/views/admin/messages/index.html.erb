@@ -1,31 +1,31 @@
-<%= render "upper" %>
-
-
-<%#メッセージエリア%>
-    <div class="admin-message-main">  
-      <div class="message-too-logo">
-        Message
-      </div>
-      <%= form_with model:[:admin, @message],url: admin_room_messages_path, id:"message-form", local: true do |f|%>
-      <span class="messageroom_name"><%= @user.nickname %></span>
-      <div class="chat-message-form">
-        <div class="chat-message-area"> 
-          <%= f.text_field :text, class:"form-message",id:"message_text", placeholder:"テキストを入力してください" %>
-        </div>
-        <div class="chat-submit-content">
-          <%= f.submit 'SEND', class:"chat-submit-btn" %>
-        </div>
-      </div>
-      <% end %>
+<div class="admin-wrapper">
+  <%= render "upper" %>
   
-      <div id="list">
+  <%#メッセージエリア%>
+  <div class="admin-message-main">  
+    <div class="message-too-logo">
+      Message
+    </div>
+    <%= form_with model:[:admin, @message],url: admin_room_messages_path, id:"message-form", local: true do |f|%>
+    <span class="messageroom_name"><%= @user.nickname %></span>
+    <div class="chat-message-form">
+      <div class="chat-message-area"> 
+        <%= f.text_field :text, class:"form-message",id:"message_text", placeholder:"テキストを入力してください" %>
       </div>
-  
+      <div class="chat-submit-content">
+        <%= f.submit 'SEND', class:"chat-submit-btn" %>
+      </div>
+    </div>
+    <% end %>
+    <div id="list">
+    </div>
+    <div class="all-messages">
       <%= render partial: "/users/messages", collection: @messages %>
     </div>
-
-
-<%#予約機能エリア%>
+  </div>
+  
+  
+  <%#予約機能エリア%>
   <div class="reservation-wrapper">
     <div class="reservation-top-logo" >
       ↓  面談予約を確認
@@ -42,3 +42,4 @@
       </div>
     </div>
   </div>
+</div>

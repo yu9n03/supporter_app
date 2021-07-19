@@ -106,7 +106,7 @@
 }
 /* 入力フォームエリア */
 .input-contents{
-  background-color: whitesmoke;
+background-color: whitesmoke;
   width: 95%;
   margin: 15px auto;
   padding: 5px 10px;
@@ -618,4 +618,23 @@
   padding: 0 5px;
   border-radius: 5px;
   margin: 0 5px 2px 0;
+}
+
+/*管理者画面*/
+.admin-header {
+  background-color: #317570;
+  padding: 10px 20px;
+  height: 70px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin-top-logo{
+  color: white;
+  font-size: 40px;
+}
+.all-users{
+  height: 120px;
+  overflow: scroll;
 }
