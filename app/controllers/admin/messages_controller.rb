@@ -7,6 +7,7 @@ class Admin::MessagesController < ApplicationController
     @room_id = @room.id
     @message = Message.new
     @messages = Message.where(room_id: @room_id).order("created_at DESC")
+    @reserved = Reservation.find_by(user_id: params[:room_id])
   end
   
   def create

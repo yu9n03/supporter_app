@@ -1,7 +1,6 @@
 <div class="admin-wrapper">
   <div class="admin-top-logo">
     管理画面
-    <span class="show_edit_link" id="chat-modal">Message</span>
   </div>
 
   <% @users.each do |user| %>
@@ -11,6 +10,10 @@
     <%= link_to "Message" , admin_room_messages_path(user.id), class: :show_edit_link %>
     <%= link_to "MyPageへ" ,mypage_path(user.id), class: :show_edit_link %>
     <%= link_to "詳細", admin_user_path(user.id),class: :show_edit_link%>
+    <span>
+      予約：
+      <%= user.reservation.pluck(:reservation_day, :reservation_time)%>
+    </span>
   </div>
   <% end %>
 </div>

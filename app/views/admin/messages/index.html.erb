@@ -23,3 +23,22 @@
   
       <%= render partial: "/users/messages", collection: @messages %>
     </div>
+
+
+<%#予約機能エリア%>
+  <div class="reservation-wrapper">
+    <div class="reservation-top-logo" >
+      ↓  面談予約を確認
+    </div>
+    <div class="reservations-contents" >
+      <div class="reserved-date">
+        <% if @reserved.blank? %>
+          面談予約はありません
+        <% else %>
+          面談予約：<%= @reserved.reservation_day %>  
+          /  <%= @reserved.reservation_time %>  
+          <%= link_to "完了", reservation_path(@reserved.id), method: :delete, class: :edit_link %>
+        <% end %>
+      </div>
+    </div>
+  </div>
