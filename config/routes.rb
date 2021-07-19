@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'users#show'
+  get 'pages/home'
+  root to: 'pages#home'
   devise_for :users
   get "users/:id" => "users#show", as: :mypage
     namespace :admin do

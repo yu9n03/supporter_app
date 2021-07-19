@@ -1,0 +1,15 @@
+<div class="home-wrapper">
+  <%= image_tag("top.jpg", class: :top_img)%>
+  <div class="home-contents">
+    <div class="home-content">
+      <% if current_user.admin? %>
+        <%= link_to "admin", admin_users_path, class:"link-to"%>
+      <% else %>
+        <%= link_to "MyPage",mypage_path(@user), class:"link-to" %>
+      <% end %>
+    </div>
+    <div class="home-content-right">
+      SUPPORTER
+    </div>
+  </div>
+</div>

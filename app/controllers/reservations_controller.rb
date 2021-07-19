@@ -14,7 +14,11 @@ class ReservationsController < ApplicationController
     @reserved = Reservation.where(user_id: params[:id]).limit(1).order('created_at DESC').last
     @reservation = Reservation.find(params[:id])
     if @reservation.destroy
-      redirect_to mypage_path(@user)
+      if current_user.admin?
+        redirect_to admin_users_path
+      else
+        redirect_to mypage_path(@user)
+      end
     else
       redirect_to mypage_path(@user)
     end

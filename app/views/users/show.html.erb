@@ -3,10 +3,10 @@
   <div class="inner">
     <div class="nav">
       <div class="nav__left">
-        <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
+        <%= link_to "SUPPORTER", mypage_path(@user), class:"header_logo" %>
       </div>
       <% if current_user.admin? %>
-      <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
+      <%= link_to "管理画面", admin_users_path, class: :nav__admin %>
       <% end %>
       <% if user_signed_in? %>
          <div class="nav__right">
@@ -27,13 +27,19 @@
 <%= form_with model: @record, local: true do |f| %>
 <div class="main-wrapper">
   <div class="input-contents">
+  
     <div class="form-top">
       <p class="input-message">入力してください</p>
       <div class="error-contents">
         <% if @record.errors.any? %>
         <div class="error-alert">
-          <span class='error-message'>入力に不備があります</li>
+          <span class='error-message'>入力に不備があります</span>
         </div>
+        <% end %>
+        <% if flash[:alert] %>
+         <div class="error-alert">
+           <span class='error-message'><%= flash[:alert] %></span>
+         </div>
         <% end %>
       </div>
     </div>
@@ -54,7 +60,7 @@
       <div class="form-content">
         <p class="input-list">体脂<br>肪率</p>
         <div class="input-area">
-        <%= f.text_field :body_fat, class:"form-input", id:"boby_fat", placeholder:"例) 22.55", maxlength:"5" %>
+        <%= f.text_field :body_fat, class:"form-input", id:"boby_fat", placeholder:"例) 22.55（任意）", maxlength:"5" %>
         %</div>
       </div>
       <div class="form-content">
@@ -142,7 +148,7 @@
       <div id="list">
       </div>
   
-      <%= render partial: "messages", collection: @messages %>
+      <%= render partial: "users/messages", collection: @messages %>
       
     </div>
   </div>

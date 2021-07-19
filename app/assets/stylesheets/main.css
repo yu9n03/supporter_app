@@ -1,7 +1,41 @@
+/* home */
+.home-wrapper{
+  background-color: #bee0f5;
+  position: relative;
+}
+.home-contents{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.home-content{
+  height: 150px;
+  width: 300px;
+  background-color: white;
+  margin-right: 10px;
+  padding: 45px 70px;
+}
+.link-to{
+  text-decoration: none;
+  color: #87CEFA;
+  font-size: 40px;
+}
+.home-content-right{
+  font-size: 100px;
+  color: white;
+}
 
+/* MyPage */
 /* ヘッダー */
 .header {
-  background-color: #f1f8fe;
+  background-color: #317570;
   padding: 10px 0px ;
   width: 100vw;
   height: 70px;
@@ -16,7 +50,9 @@
   justify-content: space-between;
 }
 .header_logo {
-  width: 250px;
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
 }
 .nav__right{
   display: flex;
@@ -25,21 +61,33 @@
 .nav__nickname{
   font-size: 20px;
   margin-right: 30px;
-  color: #87CEFA;
+  color: #B1F7F1;
   text-decoration: none;
   transition: 0.4s ease;
   cursor: pointer;
 }
 .nav__nickname:hover{
   opacity: 0.5;
-  color:#87CEFA;
+  color:#B1F7F1;
+}
+.nav__admin{
+  font-size: 30px;
+  margin-right: 30px;
+  color: #F57873;
+  text-decoration: none;
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+.nav__nickname:hover{
+  opacity: 0.5;
+  color: white;
 }
 .nav__logout{
   padding: 0.3em 0.8em;
   font-size: 20px;
-  color: #87CEFA;
+  color: #B1F7F1;
   text-decoration: none;
-  border: 1px #87CEFA solid;
+  border: 1px #B1F7F1 solid;
   border-radius: 5px;
   user-select: none;
   transition: 0.4s ease;
@@ -47,7 +95,7 @@
 .nav__logout:hover{
   opacity: 0.5;
   color: #fff;
-  background: #87CEFA;
+  background: #B1F7F1;
 }
 
 /* body部分 */
@@ -58,7 +106,7 @@
 }
 /* 入力フォームエリア */
 .input-contents{
-  background-color: whitesmoke;
+background-color: whitesmoke;
   width: 95%;
   margin: 15px auto;
   padding: 5px 10px;
@@ -77,7 +125,8 @@
   justify-content: space-around;
 }
 .form-content{
-  background-color: #87CEFA;
+  background-color: #51C2B8;
+  border-radius: 7px;
   height: 50px;
   width: 24%;
   margin-bottom: 10px;
@@ -87,7 +136,7 @@
 }
 .input-list{
   font-size: 12px;
-  color: gray;
+  color: white;
   width: 45px;
   text-align: center;
 }
@@ -122,13 +171,14 @@
 }
 .memo-contents{
   width: calc(91% - 80px);
-  background-color: #87CEFA;
+  background-color: #51C2B8;
+  border-radius: 7px;
   display: flex;
   justify-content: space-around;
   align-items: center;  
 }
 .memo-list{
-  color: gray;
+  color: white;
   width: 45px;
   text-align: center;
 }
@@ -153,8 +203,8 @@
   width: 100px;
   height: 80%;
   cursor: pointer;
-  background-color: #bee0f5;
-  box-shadow: 0px 3px #86adc5;
+  background-color: #B1F7F1;
+  box-shadow: 0px 3px #51C2B8;
   color: gray;
   font-size: 20px;
   border-style: none;
@@ -188,7 +238,7 @@
   padding: 0 30px;
   margin-bottom: 8px;
   border-bottom: 1px solid gray;
-  background-color: gray;
+  background-color: #547573;
 }
 .weight-chart{
   margin-bottom: 8px;
@@ -221,7 +271,7 @@
   padding: 5px;
 }
 .my-plan-title{
-  background-color: gray;
+  background-color: #547573;
   color: white;
   width: 100%;
   text-align: center;
@@ -239,7 +289,7 @@
   margin: 0 10px;
 }
 .my-chart-area{
-  height: calc(100% - 80px);
+  height: calc(100% - 90px);
   background-color: white;
   padding: 5px;
 }
@@ -274,7 +324,7 @@
   overflow: scroll;
 }
 .message-too-logo{
-  color: skyblue;
+  color: #51C2B8;
   text-align: center;
   font-size: 25px;
 }
@@ -305,7 +355,7 @@
   height: 60px;
   margin: 5px auto;
   padding: 5px 15px 0;
-  background-color: skyblue;
+  background-color: #51C2B8;
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
@@ -332,7 +382,7 @@
   height: 90%;
   cursor: pointer;
   background-color: #bee0f5;
-  box-shadow: 0px 3px #86adc5;
+  box-shadow: 0px 3px #547573;
   color: gray;
   font-size: 15px;
   border-style: none;
@@ -356,18 +406,19 @@
 .reservation-top-logo{
   width: 400px;
   height: 25px;
-  background-color:dodgerblue;
+  background-color:#317570;
   color: white;
   cursor: pointer;
   text-align: center;
 }
 .reservations-contents{
-  background-color: white;
+  background-color: whitesmoke;
   padding: 15px;
   display: none;
 }
 .reserved-date{
-  background-color: #87CEFA;
+  background-color: #B1F7F1;
+  border-radius: 5px;
   margin-bottom: 15px;
   text-align: center;
 }
@@ -378,7 +429,8 @@
 }
 .reservation-input-form{
   padding: 5px;
-  background-color: #87CEFA;
+  border-radius: 5px;
+  background-color: #B1F7F1;
 }
 .reservation-submit-content{
   width: 50px;
@@ -388,8 +440,8 @@
   height: 100%;
   width: 100%;
   cursor: pointer;
-  background-color: #bee0f5;
-  box-shadow: 0px 3px #86adc5;
+  background-color: #B1F7F1;
+  box-shadow: 0px 3px #51C2B8;
   color: gray;
   font-size: 15px;
   border-style: none;
@@ -408,7 +460,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #c1e3f8;
+  background-color: #317570
 }
 .plan-area{
   height: 80%;
@@ -417,7 +469,7 @@
   padding: 10px 30px;
 }
 .plan-top-logo{
-  color: skyblue;
+  color: #51C2B8;
   font-size: 50px;
 }
 .plan-output-area{
@@ -443,7 +495,7 @@
   box-shadow: none;
 }
 .plan-list{
-  color: skyblue;
+  color: #51C2B8;
   font-size: 20px;
 }
 .plan-output{
@@ -509,15 +561,15 @@
   padding: 5px 50px;
   border: none;
   border-radius: 20px;
-  background-color: skyblue;
-  box-shadow: 0px 3px gray;
-  color: white;
+  background-color: #B1F7F1;
+  box-shadow: 0px 3px #51C2B8;
+  color: gray;
   font-size: 20px;
   display: block;
 }
 .plan_form_btn:active{
   position: relative;
-  top: 5px;
+  top: 3px;
   box-shadow: none;
 }
 /*recordsのeditページ*/
@@ -566,4 +618,23 @@
   padding: 0 5px;
   border-radius: 5px;
   margin: 0 5px 2px 0;
+}
+
+/*管理者画面*/
+.admin-header {
+  background-color: #317570;
+  padding: 10px 20px;
+  height: 70px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.admin-top-logo{
+  color: white;
+  font-size: 40px;
+}
+.all-users{
+  height: 120px;
+  overflow: scroll;
 }

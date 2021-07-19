@@ -15,12 +15,12 @@
         <%= render "devise/shared/error_messages", resource: resource %>
         
         <div class="edit-field">
-          <%= f.label :ニックネーム, class: :field_label %><br />
+          <%= f.label :nickname, class: :field_label %><br />
           <%= f.text_field :nickname, autofocus: true, class: :edit_text_field %>
         </div>
 
         <div class="edit-field">
-          <%= f.label :email, class: :field_label %><br />
+          <%= f.label :Email, class: :field_label %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: :edit_text_field %>
         </div>
       
@@ -34,7 +34,7 @@
         </div>
       
         <div class="edit-field">
-          <%= f.label :password_confirmation, class: :field_label %><br />
+          <%= f.label :New_password, class: :field_label %><i>(再入力)</i>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: :edit_text_field %>
         </div>
       

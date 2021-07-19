@@ -18,6 +18,7 @@
 - has_many :messages
 - has_many :reservations
 - has_one :target
+- has_one :room
 
 ## records テーブル
 
@@ -48,15 +49,28 @@
 - belongs_to :user
 - has_many :records
 
-## messages テーブル
+## rooms テーブル
   
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| text   | text       | null: false                    |
 | user   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
+- has_many :messages
+
+## messages テーブル
+  
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| text          | text       | null: false                    |
+| user_nickname | string     | null: false                    |
+| room_id       | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :room
 
 ## reservations テーブル
 

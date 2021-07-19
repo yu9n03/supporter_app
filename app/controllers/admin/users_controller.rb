@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :if_not_admin
   before_action :set_user, only: [:show, :destroy]
-  
+
   def index
     @users = User.all
     @message = Message.new
