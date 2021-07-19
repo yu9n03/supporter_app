@@ -16,17 +16,17 @@
       </div>
       
       <div class="sign-up-field">
-        <%= f.label :ニックネーム, class: :field_label %><br />
+        <%= f.label :Nickname, class: :field_label %><br />
         <%= f.text_field :nickname, autofocus: true, class: :text_field %>
       </div>
     
       <div class="sign-up-field">
-        <%= f.label :email, class: :field_label %><br />
+        <%= f.label :Email, class: :field_label %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: :text_field %>
       </div>
     
       <div class="sign-up-field">
-        <%= f.label :password, class: :field_label %>
+        <%= f.label :Password, class: :field_label %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> 文字以上)</em>
         <% end %><br />
@@ -34,7 +34,7 @@
       </div>
     
       <div class="sign-up-field">
-        <%= f.label :password（再入力）, class: :field_label %><br />
+        <%= f.label :Password, class: :field_label %><i>（再入力）</i>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: :text_field %>
       </div>
     

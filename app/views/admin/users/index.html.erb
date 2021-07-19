@@ -7,13 +7,13 @@
   <div class="show-records">
     <span class="show-date"><%= user.id %></span>
     <span class="show-weight"><%= user.nickname %></span>
-    <%= link_to "Message" , admin_room_messages_path(user.id), class: :show_edit_link %>
-    <%= link_to "MyPageへ" ,mypage_path(user.id), class: :show_edit_link %>
+    <%= link_to "Message/面談管理" , admin_room_messages_path(user.id), class: :show_edit_link %>
     <%= link_to "詳細", admin_user_path(user.id),class: :show_edit_link%>
     <span>
       予約：
       <%= user.reservation.pluck(:reservation_day, :reservation_time)%>
     </span>
+    <%= link_to "MyPageへ" ,mypage_path(user.id), class: :show_edit_link %>
   </div>
   <% end %>
 </div>

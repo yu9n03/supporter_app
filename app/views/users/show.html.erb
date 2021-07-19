@@ -3,10 +3,10 @@
   <div class="inner">
     <div class="nav">
       <div class="nav__left">
-        <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
+        <%= link_to "SUPPORTER", mypage_path(@user), class:"header_logo" %>
       </div>
       <% if current_user.admin? %>
-      <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
+      <%= link_to "管理画面", admin_users_path, class: :nav__admin %>
       <% end %>
       <% if user_signed_in? %>
          <div class="nav__right">
