@@ -4,15 +4,20 @@
   <div class="inner">
     <div class="nav">
       <div class="nav__left">
-        <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
+        <%= link_to "SUPPORTER", mypage_path(@user), class:"header_logo" %>
       </div>
-      <div class="nav__right">
-          <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
-          <span class="nav__nickname"><%= @user.nickname %></span>
+      <% if current_user.admin? %>
+      <%= link_to "管理画面", admin_users_path, class: :nav__admin %>
+      <% end %>
+      <% if user_signed_in? %>
+         <div class="nav__right">
+          <%= link_to @user.nickname, edit_user_registration_path, class: :nav__nickname %>
           <% if @target.present?%>
           <%= link_to "My plan", target_path(@target), class: :nav__nickname %>
           <% end%>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
         </div>
+      <% end %>
     </div>
   </div>
 </header>
