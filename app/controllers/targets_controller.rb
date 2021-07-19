@@ -1,5 +1,6 @@
 class TargetsController < ApplicationController
   before_action :set_target, only: [:show, :edit, :update]
+  before_action :contributor_confirmation
 
   def show
     @user = User.find(current_user.id)
@@ -43,5 +44,8 @@ class TargetsController < ApplicationController
     @target = Target.find(params[:id])
   end
 
-
+  def contributor_confirmation
+    @target = Target.find(params[:id])
+    redirect_to root_path unless current_user == @target.user || current_user.admin?
+  end
 end
