@@ -27,13 +27,19 @@
 <%= form_with model: @record, local: true do |f| %>
 <div class="main-wrapper">
   <div class="input-contents">
+  
     <div class="form-top">
       <p class="input-message">入力してください</p>
       <div class="error-contents">
         <% if @record.errors.any? %>
         <div class="error-alert">
-          <span class='error-message'>入力に不備があります</li>
+          <span class='error-message'>入力に不備があります</span>
         </div>
+        <% end %>
+        <% if flash[:alert] %>
+         <div class="error-alert">
+           <span class='error-message'><%= flash[:alert] %></span>
+         </div>
         <% end %>
       </div>
     </div>

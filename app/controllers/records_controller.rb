@@ -5,11 +5,17 @@ class RecordsController < ApplicationController
   before_action :set_user, only: [:create, :edit, :update, :destroy]
 
   def create
-    @record = Record.new(record_params)
-    if @record.save
-      redirect_to mypage_path(@user)
+    @current_record = Record.where(user_id: current_user.id).limit(1).order('input_day DESC').last
+    @today = Date.today
+    if @current_record.present? == true && @current_record.input_day == @today
+      redirect_to mypage_path(@user), alert: '今日は既にデータ登録済みです'
     else
-      render 'users/show'
+      @record = Record.new(record_params)
+      if @record.save
+        redirect_to mypage_path(@user)
+      else
+        render 'users/show'
+      end
     end
   end
 
