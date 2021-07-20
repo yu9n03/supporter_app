@@ -3,16 +3,16 @@
   <div class="inner">
     <div class="nav">
       <div class="nav__left">
-        <%= link_to image_tag("logo.png", class: :header_logo), mypage_path(@user) %>
+        <%= link_to "SUPPORTER", mypage_path(@user), class:"header_logo" %>
       </div>
       <% if current_user.admin? %>
-      <%= link_to "管理画面", admin_users_path, class: :nav__nickname %>
+      <%= link_to "管理画面", admin_users_path, class: :nav__admin %>
       <% end %>
       <% if user_signed_in? %>
          <div class="nav__right">
-          <%= link_to current_user.nickname, edit_user_registration_path, class: :nav__nickname %>
-          <% if @user.target.present?%>
-          <%= link_to "My plan", target_path(@user.target), class: :nav__nickname %>
+          <%= link_to @user.nickname, edit_user_registration_path, class: :nav__nickname %>
+          <% if @target.present?%>
+          <%= link_to "My plan", target_path(@target), class: :nav__nickname %>
           <% end%>
           <span class="nav__nickname" id="chat-modal">Message</span>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
@@ -21,6 +21,7 @@
     </div>
   </div>
 </header>
+
 <%#インプットエリア%>
 <%= form_with model: @record, local: true do |f| %>
 <div class="input-contents">
