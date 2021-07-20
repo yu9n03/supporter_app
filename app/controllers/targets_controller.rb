@@ -1,6 +1,6 @@
 class TargetsController < ApplicationController
   before_action :set_target, only: [:show, :edit, :update]
-  before_action :contributor_confirmation
+  before_action :contributor_confirmation, only: [:show, :edit, :update]
 
   def show
     @user = User.find(current_user.id)
