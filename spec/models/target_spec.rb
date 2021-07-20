@@ -15,37 +15,37 @@ RSpec.describe Target, type: :model do
       it 'goal_weightが空では登録できない' do
         @target.goal_weight = ''
         @target.valid?
-        expect(@target.errors.full_messages).to include("Goal weight can't be blank")
+        expect(@target.errors.full_messages).to include("Goal weightを入力してください")
       end
       it 'goal_weightが1桁では登録できない' do
         @target.goal_weight = 1
         @target.valid?
-        expect(@target.errors.full_messages).to include("Goal weight is invalid")
+        expect(@target.errors.full_messages).to include("Goal weightは不正な値です")
       end
       it 'goal_weightが4桁以上では登録できない' do
         @target.goal_weight = 1111
         @target.valid?
-        expect(@target.errors.full_messages).to include("Goal weight is invalid")
+        expect(@target.errors.full_messages).to include("Goal weightは不正な値です")
       end
       it 'period_idが空では登録できない' do
         @target.period_id = ''
         @target.valid?
-        expect(@target.errors.full_messages).to include("Period can't be blank")
+        expect(@target.errors.full_messages).to include("Periodを入力してください")
       end
       it 'period_idが1では登録できない' do
         @target.period_id = 1
         @target.valid?
-        expect(@target.errors.full_messages).to include("Period can't be blank")
+        expect(@target.errors.full_messages).to include("Periodcan't be blank")
       end
       it 'planが空では登録できない' do
         @target.plan = ''
         @target.valid?
-        expect(@target.errors.full_messages).to include("Plan can't be blank")
+        expect(@target.errors.full_messages).to include("Planを入力してください")
       end
       it 'ユーザーが紐付いていなければ出品できない' do
         @target.user = nil
         @target.valid?
-        expect(@target.errors.full_messages).to include("User must exist")
+        expect(@target.errors.full_messages).to include("Userを入力してください")
       end
     end
   end
