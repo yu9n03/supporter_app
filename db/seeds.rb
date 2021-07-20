@@ -1,6 +1,6 @@
 User.create!(
   nickname: 'admin',
-  email: 'sample@sample.com',
+  email: 'admin@admin.com',
   admin: true,
   password: 'password',
   password_confirmation: 'password',
