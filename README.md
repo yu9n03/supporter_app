@@ -6,7 +6,7 @@
 - 特定保健指導の進捗の管理・評価にも活用が可能
 
 # App URL
-https://supporter-app-35943.herokuapp.com/
+http://35.72.58.224/
 
 # 利用方法（操作方法）
 ### ①My Page
@@ -171,3 +171,4 @@ Password: password
 - gem 3.0.3
 - heroku 7.56.1
 - JavaScript
+- AWS(EC2)
