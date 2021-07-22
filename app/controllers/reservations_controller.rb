@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-       redirect_to mypage_path(@user)
+      redirect_to mypage_path(@user)
     else
       flash.now[:alert]
     end
@@ -25,6 +25,7 @@ class ReservationsController < ApplicationController
   end
 
   private
+
   def reservation_params
     params.require(:reservation).permit(:reservation_day, :reservation_time).merge(user_id: current_user.id)
   end
@@ -32,5 +33,4 @@ class ReservationsController < ApplicationController
   def set_user
     @user = User.find(current_user.id)
   end
-
 end

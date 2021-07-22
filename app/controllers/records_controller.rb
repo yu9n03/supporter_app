@@ -34,13 +34,12 @@ class RecordsController < ApplicationController
 
   def destroy
     if @record.destroy
-      redirect_to mypage_path(@user)
-    else
-      redirect_to mypage_path(@user)
     end
+    redirect_to mypage_path(@user)
   end
 
   private
+
   def record_params
     params.require(:record).permit(:weight, :body_fat, :memo, :assessment, :input_day).merge(user_id: current_user.id)
   end
@@ -54,7 +53,7 @@ class RecordsController < ApplicationController
     @user = User.find(current_user.id)
     @current_record = Record.where(user_id: current_user.id).limit(1).order('input_day DESC').last
     @target = Target.find_by(user_id: current_user.id)
-    @messages = Message.where(user_id: current_user.id).or(Message.where(user_id:1)).order("created_at DESC")
+    @messages = Message.where(user_id: current_user.id).or(Message.where(user_id: 1)).order('created_at DESC')
   end
 
   def set_user

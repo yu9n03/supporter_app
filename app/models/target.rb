@@ -1,7 +1,7 @@
 class Target < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :period
-  
+
   belongs_to :user
 
   validates :goal_weight, presence: true, format: { with: /\A([0-9]{2,3})(\.[0-9]{1,2})?\z/ }
