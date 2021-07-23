@@ -169,6 +169,5 @@ Password: password
 - Rails 6.0.4
 - mysql 14.14
 - gem 3.0.3
-- heroku 7.56.1
 - JavaScript
 - AWS(EC2)
