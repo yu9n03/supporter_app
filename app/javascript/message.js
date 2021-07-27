@@ -17,26 +17,27 @@ const buildHTML = (XHR) => {
 
 function post (){
   const submit = document.getElementById("chat-submit-btn");
-  submit.addEventListener("click", (e) => {
-    e.preventDefault();
-    const form = document.getElementById("message-form");
-    const formData = new FormData(form);
-    const XHR = new XMLHttpRequest();
-    XHR.open("POST", "/messages", true);
-    XHR.responseType = "json";
-    XHR.send(formData);
-    XHR.onload = () => {
-      if (XHR.status != 200) {
-        alert(`Error ${XHR.status}: ${XHR.statusText}`);
-        return null;
+  if ( document.getElementById("chat-submit-btn")){
+    submit.addEventListener("click", (e) => {
+      e.preventDefault();
+      const form = document.getElementById("message-form");
+      const formData = new FormData(form);
+      const XHR = new XMLHttpRequest();
+      XHR.open("POST", "/messages", true);
+      XHR.responseType = "json";
+      XHR.send(formData);
+      XHR.onload = () => {
+        if (XHR.status != 200) {
+          alert(`Error ${XHR.status}: ${XHR.statusText}`);
+          return null;
+        };
+        const list = document.getElementById("list");
+        const formText = document.getElementById("message_text");
+        list.insertAdjacentHTML("afterend", buildHTML(XHR));
+        formText.value = "";
       };
-      const list = document.getElementById("list");
-      const formText = document.getElementById("message_text");
-      list.insertAdjacentHTML("afterend", buildHTML(XHR));
-      formText.value = "";
-    };
-  });
-
+    });
+   }
  };
  
  window.addEventListener('load', post);
